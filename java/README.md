@@ -6,7 +6,7 @@ Java21, package `org.whitedoggy.maplelibrary`, Gradle9.4.1, 내부 Jackson core3
 - `./gradlew publish`: build/repository 로컬 Maven 저장소에만 게시.
 - `examples/Offline.java`: 설치된 library+runtime dependency로 실행하는 합성 소비자 예제.
 
-저장소의 docs/agent-guide.md와 docs/implementation-status.md가 지원 범위를 설명한다. 공개 배포 좌표는 미확정이다.
+[사용 안내](../docs/usage.md)에서 API와 지원 범위를 확인할 수 있다. 공개 배포 좌표는 미확정이다.
 
 ## 라이선스 및 NEXON Open API 이용 안내
 

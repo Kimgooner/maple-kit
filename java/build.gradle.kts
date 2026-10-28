@@ -31,22 +31,6 @@ tasks.withType<Javadoc>().configureEach {
 publishing { repositories { maven { name = "localBuild"; url = uri(layout.buildDirectory.dir("repository")) } } }
 tasks.withType<JavaCompile>().configureEach { options.compilerArgs.add("-Xlint:deprecation") }
 
-val smoke = sourceSets.create("smoke") {
-    java.srcDir("examples")
-    compileClasspath += sourceSets.main.get().output + configurations.runtimeClasspath.get()
-    runtimeClasspath += output + compileClasspath
-}
-tasks.register<JavaExec>("liveSmoke") {
-    description = "Opt-in live check; requires -PkeyFile and -Pnickname. Prints no key or character raw data."
-    classpath = smoke.runtimeClasspath
-    mainClass.set("LiveSmoke")
-    doFirst { args(providers.gradleProperty("keyFile").get(), providers.gradleProperty("nickname").get()) }
-}
-tasks.register<JavaExec>("benchmark") {
-    classpath = smoke.runtimeClasspath
-    mainClass.set("Benchmark")
-}
-
 // Include the root license in binary, sources, and Javadoc artifacts.
 tasks.withType<Jar>().configureEach {
     from(rootDir.resolve("../LICENSE")) { into("META-INF") }

@@ -23,7 +23,7 @@ jobs:
       - run: cd java && ./gradlew test build --no-daemon
       - run: python tools/check_conformance.py
       - run: python -m build python
-      - run: python tools/release_check.py
+      - run: python tools/check_packages.py
       - name: Validate installed wheel
         run: |
           python -m venv /tmp/maple-consumer
@@ -35,4 +35,3 @@ jobs:
           path: |
             java/build/libs/*.jar
             python/dist/*
-            release/artifacts.json

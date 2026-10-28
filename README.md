@@ -2,20 +2,22 @@
 
 메이플스토리 캐릭터 원본 데이터의 Java/Python 독립 라이브러리.
 
-`java/`와 `python/`은 각각 빌드·설치하며, `contracts/`와 `fixtures/`로 동작을 함께 검증합니다.
+`java/`와 `python/`은 각각 빌드·설치하며, `fixtures/`로 동작을 함께 검증합니다.
 
-**Java/Python 수집·해석·비교 구현:** 전체·선택 API 조회, 27개 소스 상태, 원본·프리셋 보존, 보수적 옵션 해석과 순수 데이터 비교를 제공한다. 실제 키로 두 언어를 검증했다. 외부 게시 전 개발용 패키지이며 상세 지원 범위와 제한은 아래 문서를 따른다.
+현재·과거 캐릭터 조회, 필요한 소스만 선택한 조회, 원본·프리셋 보존, 옵션 해석과 데이터 비교를 제공합니다. 전투력 계산이나 효과 적용 판단은 수행하지 않습니다. 해석하지 못한 문구도 원문으로 보존합니다.
 
-- [실행 가능한 API 안내](docs/agent-guide.md)
-- [구현 상태와 한계](docs/implementation-status.md)
-- [전체 구현 계획](.plan/general/2026-10-27-java-python-library.md)
-- [공통 계약](contracts/README.md)
-- [기존 파서 책임 분류](docs/research/parser-boundary.md)
-- [기술 선택](docs/decisions/0001-runtime-and-model.md)
+- [사용 방법과 API 예제](docs/usage.md)
+- [Java 빌드](java/README.md) · [Python 설치](python/README.md)
 
-Java는 java 폴더에서 Java21로 `./gradlew test build`, Python은 python 폴더에서 개발 설치 후 `python -m pytest`를 실행한다. 두 테스트 후 루트에서 `python tools/check_conformance.py`로 공통 expected와 교차 검증한다.
+```text
+java/       Java 21 라이브러리와 테스트
+python/     Python 3.12+ 라이브러리와 테스트
+fixtures/   두 언어의 공통 테스트 데이터
+docs/       사용 안내
+tools/      공통 테스트·패키지 검증
+```
 
-전투력·총 스탯 계산, 효과 적용 판단과 보스 프리셋 추천은 소비자 책임이다. MapleDelta 서버 통합은 별도 담당 범위다.
+Java는 `java/`에서 `./gradlew test build`, Python은 `python/`에서 `pip install -e '.[test]'` 후 `python -m pytest`로 검증합니다. 두 테스트 후 루트에서 `python tools/check_conformance.py`로 결과를 비교합니다. Maven/PyPI에는 아직 게시하지 않은 개발 버전입니다.
 
 ## 라이선스 및 NEXON Open API 이용 안내
 

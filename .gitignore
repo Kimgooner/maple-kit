@@ -15,3 +15,20 @@ dist/
 # Local outputs
 .DS_Store
 coverage/
+
+# Local planning, research, and live API audit materials
+/.plan/
+/AGENTS.md
+/reports/
+/release/
+/contracts/
+/docs/*
+!/docs/usage.md
+**/.gitkeep
+/tools/live_matrix.py
+/tools/live_smoke.py
+/tools/benchmark.py
+/tools/release_check.py
+/java/examples/LiveSmoke.java
+/java/examples/Benchmark.java
+/fixtures/expected/

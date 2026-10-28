@@ -68,16 +68,8 @@ try (var client = new MapleClient(System.getenv("MAPLE_OPEN_API_KEY"))) {
 
 `diagnostics()`는 UNKNOWN_FIELD/SCHEMA_TYPE_DIFFERENCE를 반환한다. 반환한 raw는 이 진단과 무관하게 보존된다. diff의 숫자 delta는 원본 수치 차이이며 캐릭터 성능 차이가 아니다.
 
-## 실패와 실제 API 검증
+## 실패 처리
 
 기본 strict: 선택 HTTP 문서 오류 시 예외. partial: FETCH_FAILED 문서에 오류; 인증/권한은 전체 실패. 문법상 파싱 가능한 구조 오류 raw는 FETCH_FAILED.raw에서 확인한다. 취소는 일반 실패로 변환하지 않는다. 링의 명시적 지원 날짜 밖은 두 모드 모두 UNSUPPORTED로 반환한다.
 
-라이브 검증 도구는 opt-in이며 테스트/CI가 키를 읽지 않는다.
-
-```sh
-python tools/live_smoke.py --env-file /절대경로/.env --nickname 캐릭터명 --date 2026-10-26
-cd java
-./gradlew liveSmoke -PkeyFile=/절대경로/.env -Pnickname=캐릭터명
-```
-
-키 파일의 MAPLE_OPEN_API_KEY를 메모리에서 읽고 상태/개수만 출력한다. 원본 캐릭터 응답은 저장하지 않는다. `tools/check_conformance.py`는 양쪽 테스트 실행 후 19개 diff fixture의 expected와 결과를 비교한다. 옵션 23사례는 각 언어 테스트가 같은 expected를 검증한다.
+공통 검증은 두 언어 테스트 실행 후 `python tools/check_conformance.py`로 수행합니다. 패키지 빌드 후 `python tools/check_packages.py`는 리소스·라이선스 포함 여부를 확인합니다. 테스트는 합성 자료만 사용하며 API 키가 필요하지 않습니다.
