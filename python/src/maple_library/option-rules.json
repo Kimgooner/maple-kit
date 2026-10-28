@@ -1,0 +1,79 @@
+[
+  {
+    "id": "permanent",
+    "pattern": "영구적으로 (.+)",
+    "effect_group": 1,
+    "conditions": [
+      "PERMANENT"
+    ]
+  },
+  {
+    "id": "passive",
+    "pattern": "\\[패시브 효과\\s*:\\s*(.+)\\]",
+    "effect_group": 1,
+    "conditions": [
+      "PASSIVE"
+    ]
+  },
+  {
+    "id": "status-target",
+    "pattern": "상태 이상에 걸린 (?:대상|몬스터) 공격 시 (.+)",
+    "effect_group": 1,
+    "conditions": [
+      "TARGET_STATUS_AILMENT",
+      "ON_ATTACK"
+    ]
+  },
+  {
+    "id": "lower-level-target",
+    "pattern": "캐릭터보다 레벨이 낮은 몬스터 공격 시 (.+)",
+    "effect_group": 1,
+    "conditions": [
+      "TARGET_LOWER_LEVEL",
+      "ON_ATTACK"
+    ]
+  },
+  {
+    "id": "full-hp-target",
+    "pattern": "HP가 100%인 몬스터 공격 시 (.+)",
+    "effect_group": 1,
+    "conditions": [
+      "TARGET_FULL_HP",
+      "ON_ATTACK"
+    ]
+  },
+  {
+    "id": "duration",
+    "pattern": "([0-9]+(?:\\.[0-9]+)?)초 동안 (.+)",
+    "effect_group": 2,
+    "conditions": [],
+    "duration_group": 1
+  },
+  {
+    "id": "combat-duration",
+    "pattern": "전투 상태에 돌입 시 (.+), 지속시간 ([0-9]+(?:\\.[0-9]+)?)초",
+    "effect_group": 1,
+    "conditions": [
+      "ENTER_COMBAT"
+    ],
+    "duration_group": 2
+  },
+  {
+    "id": "apply-status-duration",
+    "pattern": "적에게 상태 이상을 적용시키면 ([0-9]+(?:\\.[0-9]+)?)초 동안 (.+)",
+    "effect_group": 2,
+    "conditions": [
+      "APPLY_STATUS_AILMENT"
+    ],
+    "duration_group": 1
+  },
+  {
+    "id": "per-stack",
+    "pattern": "중첩 당 (.+)",
+    "effect_group": 1,
+    "conditions": [],
+    "expression": {
+      "kind": "PER_STACK"
+    }
+  }
+]

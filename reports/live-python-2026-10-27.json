@@ -1,0 +1,238 @@
+{
+  "documents": {
+    "ABILITIES": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 12
+    },
+    "ANDROID": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 0
+    },
+    "BASIC": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 0
+    },
+    "CASH": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 4
+    },
+    "EQUIPMENT": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 346,
+      "options": 492
+    },
+    "HEXA_CORES": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 0
+    },
+    "HEXA_STATS": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 0
+    },
+    "HYPER_STATS": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 19
+    },
+    "LINK_SKILLS": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 63
+    },
+    "OTHER_STATS": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 0
+    },
+    "PETS": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 1,
+      "options": 14
+    },
+    "PROPENSITY": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 0
+    },
+    "REPORTED_STATS": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 0
+    },
+    "RING_EXCHANGE": {
+      "status": "UNSUPPORTED",
+      "attempts": 0,
+      "error": "DATE_NOT_SUPPORTED",
+      "structure_valid": false,
+      "schema_diagnostics": 0,
+      "options": 0
+    },
+    "RING_RESERVE": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 0
+    },
+    "SET_EFFECTS": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 0
+    },
+    "SKILL_0": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 42
+    },
+    "SKILL_5": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 99
+    },
+    "SKILL_6": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 54
+    },
+    "SKILL_HYPER_ACTIVE": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 7
+    },
+    "SKILL_HYPER_PASSIVE": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 5
+    },
+    "SYMBOLS": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 0
+    },
+    "UNION_ARTIFACT": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 13
+    },
+    "UNION_BASIC": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 0
+    },
+    "UNION_CHAMPION": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 4
+    },
+    "UNION_RAIDER": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 63
+    },
+    "V_MATRIX": {
+      "status": "FETCHED",
+      "attempts": 1,
+      "error": null,
+      "structure_valid": true,
+      "schema_diagnostics": 0,
+      "options": 0
+    }
+  },
+  "quality": {
+    "requested_complete": false,
+    "structure_valid": false,
+    "all_sources": true,
+    "interpretation_complete": false
+  },
+  "historical": {
+    "sources": [
+      "SYMBOLS"
+    ],
+    "diagnostics": [],
+    "quality": {
+      "requested_complete": true,
+      "structure_valid": true,
+      "all_sources": false,
+      "interpretation_complete": true
+    }
+  }
+}

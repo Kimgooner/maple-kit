@@ -1,0 +1,106 @@
+{
+  "reviewDate": "2026-10-27",
+  "basis": "current working tree including uncommitted changes; not a committed release",
+  "files": [
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/analysis/service/SnapshotService.java",
+      "sha256": "08e6fffe033f52a5846626f5cccf041ed543895a7d0c948496570052ae44efe5"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/domain/ability/AbilityParser.java",
+      "sha256": "7b080e5792f769b33f44679322efb32a144ec60b09d2a3c1acf39801f4f71d8d"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/domain/basic/BasicParser.java",
+      "sha256": "31493157abe8d11da0502fa8964209f2b7ea12ad4d4b44cd3332e4592d29bc98"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/domain/calculator/parser/StatParser.java",
+      "sha256": "01ae26e74f821a45e1c7fd1ff927f2f6876594c993be382878f66b3ad6c944c1"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/domain/cash/CashItemParser.java",
+      "sha256": "4bd5bba6a423dd0e706e70516c64efcf5f81d8b264ce47788796669ed235ffa4"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/domain/common/stat/StatSheetParser.java",
+      "sha256": "126406b28ffff50257b921bd4c934605a8f2c23a86c46c143656b0b13068fc7a"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/domain/common/support/EffectTextSplitter.java",
+      "sha256": "3a0cbdd26d08e52d34138b3ae238583fbb270ea085660605a9361f8456ec3ee5"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/domain/hexa/HexaCoreParser.java",
+      "sha256": "6028af8be32929459863a0d53ee2cb394bf6c7709c4a46131d4315c64ffc944a"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/domain/hexa/HexaParser.java",
+      "sha256": "28a298f720994b1512bcdbb937d4df2e9fad521e8c86734e24e2310a9737c9d8"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/domain/hyper/HyperStatParser.java",
+      "sha256": "f5aec67d4d4fbcc1c72f502ad627e95621b44a019d3cb4b3478903228aa7128e"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/domain/item/parser/ItemEquipmentParser.java",
+      "sha256": "b19cbcffbf5c846c5e4af686784833e2b33f2dd402b450bfa4347abafb11ce40"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/domain/item/parser/ItemParser.java",
+      "sha256": "26b23310afbcaa50ece89525bf3355c121f33241fd83ef0f3e80415943e30b70"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/domain/otherstat/OtherStatParser.java",
+      "sha256": "771f5dff8785852cd233f8f38a46e945bed1faf4d36b7d5b00dbc19e54dd1758"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/domain/pet/PetParser.java",
+      "sha256": "5e1f0f36395792f38bac9a842e65542c0fcfecf9390a97a9da8798fc5781b107"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/domain/propensity/PropensityParser.java",
+      "sha256": "77253e5c56a5ef01f922dc5442f068d4cf91650017adbc455ddc0f5995962e60"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/domain/set/parser/SetEffectParser.java",
+      "sha256": "193cc04be866d109226b214c1e05ec9fe2af075de19dc9349591249d4b80b7af"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/domain/skill/SkillParser.java",
+      "sha256": "d32a8a10a29c5339b5022f52a96da1467917e02eaa3db1a3d40c6ed7dc07b6b9"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/domain/symbol/SymbolParser.java",
+      "sha256": "ab83ba9f8cd1f6819dda67fac5a0ddcf0e967ff722bd4cb5c1ca232700ae690f"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/domain/union/artifact/ArtifactParser.java",
+      "sha256": "7ceb52b21ff7afed4322401285c2ae5f6ccfba83f8caa80ba19e9d154245e490"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/domain/union/champion/ChampionParser.java",
+      "sha256": "0dfaa4b8264f035da21d1c4356b220ee62188f1171ba19c511d7ecacf4d2c8cd"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/domain/union/raider/RaiderParser.java",
+      "sha256": "a5cec01a2e28334396e4ba13278fb6b66fff7d1e32b556b78cfdfdc071edc087"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/external/nexon/client/NexonApiClient.java",
+      "sha256": "cfdc3381c351b23e0022ab1f756adb6cb6b6562a9432660af3952175380b99bb"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/external/nexon/client/NexonRateLimiter.java",
+      "sha256": "61770449139353d8b8f252b809f41c9bb12b9f5769a5967f8e136902f0eb68de"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/external/nexon/config/NexonEndpoint.java",
+      "sha256": "12939b8fe96d87ebea0c0267fba7877cf398b480178e845fb339491c009d15c3"
+    },
+    {
+      "path": "maple-web-proj-v2/src/main/java/org/whitedoggy/mapleweb2/global/Jsons.java",
+      "sha256": "2b00c89a8d8d97d41769baa58caa40e36a83565d031b537719c3e52936e8ec1e"
+    }
+  ]
+}

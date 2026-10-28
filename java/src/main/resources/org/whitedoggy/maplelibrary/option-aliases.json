@@ -1,0 +1,181 @@
+{
+  "STR": [
+    "STR"
+  ],
+  "힘": [
+    "STR"
+  ],
+  "DEX": [
+    "DEX"
+  ],
+  "민첩": [
+    "DEX"
+  ],
+  "민첩성": [
+    "DEX"
+  ],
+  "INT": [
+    "INT"
+  ],
+  "지력": [
+    "INT"
+  ],
+  "지능": [
+    "INT"
+  ],
+  "LUK": [
+    "LUK"
+  ],
+  "운": [
+    "LUK"
+  ],
+  "행운": [
+    "LUK"
+  ],
+  "올스탯": [
+    "ALL_STAT"
+  ],
+  "모든 능력치": [
+    "ALL_STAT"
+  ],
+  "ALLSTAT": [
+    "ALL_STAT"
+  ],
+  "공격력": [
+    "ATTACK"
+  ],
+  "마력": [
+    "MAGIC"
+  ],
+  "공격력/마력": [
+    "ATTACK",
+    "MAGIC"
+  ],
+  "공격력, 마력": [
+    "ATTACK",
+    "MAGIC"
+  ],
+  "공격력 및 마력": [
+    "ATTACK",
+    "MAGIC"
+  ],
+  "최대 HP": [
+    "HP"
+  ],
+  "HP": [
+    "HP"
+  ],
+  "체력": [
+    "HP"
+  ],
+  "최대 MP": [
+    "MP"
+  ],
+  "MP": [
+    "MP"
+  ],
+  "최대 HP,MP": [
+    "HP",
+    "MP"
+  ],
+  "최대 HP, 최대 MP": [
+    "HP",
+    "MP"
+  ],
+  "최대 HP/최대 MP": [
+    "HP",
+    "MP"
+  ],
+  "보스 몬스터 공격 시 데미지": [
+    "BOSS_DAMAGE"
+  ],
+  "보스 몬스터 데미지": [
+    "BOSS_DAMAGE"
+  ],
+  "보스 공격 시 데미지": [
+    "BOSS_DAMAGE"
+  ],
+  "데미지": [
+    "DAMAGE"
+  ],
+  "최종 데미지": [
+    "FINAL_DAMAGE"
+  ],
+  "크리티컬 데미지": [
+    "CRITICAL_DAMAGE"
+  ],
+  "크리티컬 확률": [
+    "CRITICAL_RATE"
+  ],
+  "크리티컬 공격 확률": [
+    "CRITICAL_RATE"
+  ],
+  "몬스터 방어율 무시": [
+    "IGNORE_DEFENSE"
+  ],
+  "방어율 무시": [
+    "IGNORE_DEFENSE"
+  ],
+  "버프 지속시간": [
+    "BUFF_DURATION"
+  ],
+  "버프 스킬의 지속 시간": [
+    "BUFF_DURATION"
+  ],
+  "재사용 대기시간 미적용 확률": [
+    "COOLDOWN_RESET_CHANCE"
+  ],
+  "스킬 재사용 대기시간": [
+    "COOLDOWN"
+  ],
+  "속성 내성 무시": [
+    "ELEMENT_IGNORE"
+  ],
+  "방어력": [
+    "DEFENSE"
+  ],
+  "이동속도": [
+    "SPEED"
+  ],
+  "점프력": [
+    "JUMP"
+  ],
+  "메소 획득량": [
+    "MESO_RATE"
+  ],
+  "아이템 드롭률": [
+    "DROP_RATE"
+  ],
+  "획득 경험치": [
+    "EXP_RATE"
+  ],
+  "최대 HP/MP": [
+    "HP",
+    "MP"
+  ],
+  "공격력과 마력": [
+    "ATTACK",
+    "MAGIC"
+  ],
+  "일반 몬스터 공격 시 데미지": [
+    "NORMAL_DAMAGE"
+  ],
+  "상태 이상 내성": [
+    "STATUS_RESISTANCE"
+  ],
+  "모든 속성 내성": [
+    "ELEMENT_RESISTANCE"
+  ],
+  "경험치 획득량": [
+    "EXP_RATE"
+  ],
+  "HP 회복 아이템 및 회복 스킬 효율": [
+    "HEALING_EFFICIENCY"
+  ],
+  "재사용 대기시간": [
+    "COOLDOWN"
+  ],
+  "재발동 대기시간": [
+    "RETRIGGER_COOLDOWN"
+  ]
+}

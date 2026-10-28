@@ -1,0 +1,31 @@
+{
+  "public_ready": false,
+  "errors": [],
+  "artifacts": [
+    {
+      "file": "python/dist/maple_library-0.1.0.dev1-py3-none-any.whl",
+      "sha256": "4a561ca3e12a33992bccbae936fc902da64361015dd8e75442f7e4edbc8e0a84",
+      "bytes": 31809
+    },
+    {
+      "file": "python/dist/maple_library-0.1.0.dev1.tar.gz",
+      "sha256": "833efbc071012d2263d1d5efe83a47f69f91ebfe76d1218cace476d72089669b",
+      "bytes": 34756
+    },
+    {
+      "file": "java/build/libs/maple-library-0.1.0-dev.1.jar",
+      "sha256": "9fba36067e732809b868b5e211044172dfc1da5c4c5f6d78903fc218ba0f9c08",
+      "bytes": 96242
+    },
+    {
+      "file": "java/build/libs/maple-library-0.1.0-dev.1-sources.jar",
+      "sha256": "adfc06737f8fc66fd0ead79eccf834c7365f75c2b49b32ea2f5342a048dcfd84",
+      "bytes": 37589
+    },
+    {
+      "file": "java/build/libs/maple-library-0.1.0-dev.1-javadoc.jar",
+      "sha256": "7f1afdbff11850670b9ee92dca0113c78ecdebb490ee7ef5fdb75062a1d3f9f3",
+      "bytes": 207261
+    }
+  ]
+}

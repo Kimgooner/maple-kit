@@ -1,0 +1,38 @@
+name: Library contracts
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.12', '3.14']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install './python[test]' build
+      - run: python -m pytest python/tests
+      - run: cd java && ./gradlew test build --no-daemon
+      - run: python tools/check_conformance.py
+      - run: python -m build python
+      - run: python tools/release_check.py
+      - name: Validate installed wheel
+        run: |
+          python -m venv /tmp/maple-consumer
+          /tmp/maple-consumer/bin/pip install python/dist/*.whl pytest==8.4.2
+          /tmp/maple-consumer/bin/python -m pytest python/tests
+      - uses: actions/upload-artifact@v4
+        with:
+          name: library-python-${{ matrix.python }}
+          path: |
+            java/build/libs/*.jar
+            python/dist/*
+            release/artifacts.json

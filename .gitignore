@@ -1,0 +1,17 @@
+# Local secrets
+.env
+.env.*
+!.env.example
+# Java
+.gradle/
+build/
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+dist/
+# Local outputs
+.DS_Store
+coverage/

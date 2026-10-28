@@ -1,0 +1,165 @@
+[
+  {
+    "text": "STR : +12",
+    "expected": [
+      "KNOWN|STR|12|FLAT||stat"
+    ]
+  },
+  {
+    "text": "최대 HP,MP +5%",
+    "expected": [
+      "KNOWN|HP,MP|5|PERCENT||stat"
+    ]
+  },
+  {
+    "text": "보스 몬스터 공격 시 데미지 +30%",
+    "expected": [
+      "KNOWN|BOSS_DAMAGE|30|PERCENT|TARGET_BOSS|stat"
+    ]
+  },
+  {
+    "text": "공격 시 20% 확률로 데미지 16% 증가",
+    "expected": [
+      "KNOWN|DAMAGE|16|PERCENT|ON_ATTACK,CHANCE_PERCENT=20|stat"
+    ]
+  },
+  {
+    "text": "AP를 직접 투자한 LUK의 7% 만큼 DEX 증가",
+    "expected": [
+      "KNOWN|DEX|-|PERCENT||ap-ratio"
+    ]
+  },
+  {
+    "text": "캐릭터 기준 9레벨 당 STR +1",
+    "expected": [
+      "KNOWN|STR|1|FLAT||per-level"
+    ]
+  },
+  {
+    "text": "공격 시 101% 확률로 STR +1",
+    "expected": [
+      "AMBIGUOUS||-|UNKNOWN||unknown"
+    ]
+  },
+  {
+    "text": "🧪 알 수 없는 효과\n STR +1, DEX +2",
+    "expected": [
+      "UNKNOWN||-|UNKNOWN||unknown",
+      "KNOWN|STR|1|FLAT||stat",
+      "KNOWN|DEX|2|FLAT||stat"
+    ]
+  },
+  {
+    "text": "영구적으로 최종 데미지 12% 증가",
+    "expected": [
+      "KNOWN|FINAL_DAMAGE|12|PERCENT|PERMANENT|permanent"
+    ],
+    "expression": {}
+  },
+  {
+    "text": "[패시브 효과 : 올스탯 7 증가]",
+    "expected": [
+      "KNOWN|ALL_STAT|7|FLAT|PASSIVE|passive"
+    ],
+    "expression": {}
+  },
+  {
+    "text": "[패시브 효과 : 공격력, 마력 23 증가]",
+    "expected": [
+      "KNOWN|ATTACK,MAGIC|23|FLAT|PASSIVE|passive"
+    ],
+    "expression": {}
+  },
+  {
+    "text": "상태 이상에 걸린 대상 공격 시 데미지 7% 증가",
+    "expected": [
+      "KNOWN|DAMAGE|7|PERCENT|TARGET_STATUS_AILMENT,ON_ATTACK|status-target"
+    ],
+    "expression": {}
+  },
+  {
+    "text": "캐릭터보다 레벨이 낮은 몬스터 공격 시 데미지 8% 증가",
+    "expected": [
+      "KNOWN|DAMAGE|8|PERCENT|TARGET_LOWER_LEVEL,ON_ATTACK|lower-level-target"
+    ],
+    "expression": {}
+  },
+  {
+    "text": "HP가 100%인 몬스터 공격 시 데미지 11% 증가",
+    "expected": [
+      "KNOWN|DAMAGE|11|PERCENT|TARGET_FULL_HP,ON_ATTACK|full-hp-target"
+    ],
+    "expression": {}
+  },
+  {
+    "text": "12초 동안 데미지 17% 증가",
+    "expected": [
+      "KNOWN|DAMAGE|17|PERCENT||duration"
+    ],
+    "expression": {
+      "duration_seconds": "12"
+    }
+  },
+  {
+    "text": "전투 상태에 돌입 시 데미지 13% 증가, 지속시간 11초",
+    "expected": [
+      "KNOWN|DAMAGE|13|PERCENT|ENTER_COMBAT|combat-duration"
+    ],
+    "expression": {
+      "duration_seconds": "11"
+    }
+  },
+  {
+    "text": "적에게 상태 이상을 적용시키면 9초 동안 데미지 15% 증가",
+    "expected": [
+      "KNOWN|DAMAGE|15|PERCENT|APPLY_STATUS_AILMENT|apply-status-duration"
+    ],
+    "expression": {
+      "duration_seconds": "9"
+    }
+  },
+  {
+    "text": "중첩 당 데미지 4%",
+    "expected": [
+      "KNOWN|DAMAGE|4|PERCENT||per-stack"
+    ],
+    "expression": {
+      "kind": "PER_STACK"
+    }
+  },
+  {
+    "text": "재사용 대기시간 75초",
+    "expected": [
+      "KNOWN|COOLDOWN|75|SECONDS||stat"
+    ],
+    "expression": {}
+  },
+  {
+    "text": "일반 몬스터 공격 시 데미지 23% 증가",
+    "expected": [
+      "KNOWN|NORMAL_DAMAGE|23|PERCENT|TARGET_NORMAL_MONSTER|stat"
+    ],
+    "expression": {}
+  },
+  {
+    "text": "[패시브 효과 : 공격력 12, 마력 13 증가]",
+    "expected": [
+      "UNKNOWN||-|UNKNOWN||unknown"
+    ],
+    "expression": {}
+  },
+  {
+    "text": "알 수 없는 조건일 때 STR +12, DEX +13",
+    "expected": [
+      "UNKNOWN||-|UNKNOWN||unknown"
+    ],
+    "expression": {}
+  },
+  {
+    "text": "[패시브 효과 : 공격력 12\n마력 13 증가]",
+    "expected": [
+      "UNKNOWN||-|UNKNOWN||unknown"
+    ],
+    "expression": {}
+  }
+]

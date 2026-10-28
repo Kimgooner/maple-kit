@@ -1,0 +1,366 @@
+[
+  {
+    "id": "symbol-no-conversion",
+    "before": {
+      "SYMBOLS": "{\"symbol\":[{\"symbol_str\":\"10\",\"symbol_dex\":\"20\"}]}"
+    },
+    "after": {
+      "SYMBOLS": "{\"symbol\":[{\"symbol_str\":\"10\",\"symbol_dex\":\"25\"}]}"
+    },
+    "expected": {
+      "changes": [
+        "SYMBOLS|/symbol/0/symbol_dex|/symbol/0/symbol_dex|CHANGED|VALUE|VALUE|5|true"
+      ],
+      "compared": [
+        "SYMBOLS"
+      ],
+      "skipped": [],
+      "diagnostics": []
+    }
+  },
+  {
+    "id": "exact-large-decimal",
+    "before": {
+      "SYMBOLS": "{\"symbol\":[{\"symbol_hp\":\"9999999999999999999999999999999999.01\"}]}"
+    },
+    "after": {
+      "SYMBOLS": "{\"symbol\":[{\"symbol_hp\":\"9999999999999999999999999999999999.03\"}]}"
+    },
+    "expected": {
+      "changes": [
+        "SYMBOLS|/symbol/0/symbol_hp|/symbol/0/symbol_hp|CHANGED|VALUE|VALUE|0.02|true"
+      ],
+      "compared": [
+        "SYMBOLS"
+      ],
+      "skipped": [],
+      "diagnostics": []
+    }
+  },
+  {
+    "id": "numeric-spelling",
+    "before": {
+      "SYMBOLS": "{\"symbol\":[{\"symbol_str\":\"4.50\"}]}"
+    },
+    "after": {
+      "SYMBOLS": "{\"symbol\":[{\"symbol_str\":4.5}]}"
+    },
+    "expected": {
+      "changes": [
+        "SYMBOLS|/symbol/0/symbol_str|/symbol/0/symbol_str|CHANGED|VALUE|VALUE|0|false"
+      ],
+      "compared": [
+        "SYMBOLS"
+      ],
+      "skipped": [],
+      "diagnostics": []
+    }
+  },
+  {
+    "id": "null-zero-missing",
+    "before": {
+      "SYMBOLS": "{\"symbol\":[{\"symbol_str\":null,\"symbol_hp\":\"bad\"}]}"
+    },
+    "after": {
+      "SYMBOLS": "{\"symbol\":[{\"symbol_str\":\"0\",\"symbol_dex\":null,\"symbol_hp\":\"0\"}]}"
+    },
+    "expected": {
+      "changes": [
+        "SYMBOLS|/symbol/0/symbol_dex|/symbol/0/symbol_dex|ADDED|MISSING|NULL|-|true",
+        "SYMBOLS|/symbol/0/symbol_hp|/symbol/0/symbol_hp|CHANGED|INVALID|VALUE|-|true",
+        "SYMBOLS|/symbol/0/symbol_str|/symbol/0/symbol_str|CHANGED|NULL|VALUE|-|true"
+      ],
+      "compared": [
+        "SYMBOLS"
+      ],
+      "skipped": [],
+      "diagnostics": []
+    }
+  },
+  {
+    "id": "unknown-preserved",
+    "before": {
+      "SYMBOLS": "{\"symbol\":[],\"new_field\":{\"str\":\"2\"}}"
+    },
+    "after": {
+      "SYMBOLS": "{\"symbol\":[],\"new_field\":{\"str\":\"3\"}}"
+    },
+    "expected": {
+      "changes": [
+        "SYMBOLS|/new_field/str|/new_field/str|CHANGED|VALUE|VALUE|-|true"
+      ],
+      "compared": [
+        "SYMBOLS"
+      ],
+      "skipped": [],
+      "diagnostics": []
+    }
+  },
+  {
+    "id": "equipment-slot-matching",
+    "before": {
+      "EQUIPMENT": "{\"item_equipment\":[{\"item_equipment_slot\":\"무기\",\"item_total_option\":{\"attack_power\":\"30\"},\"item_base_option\":{\"attack_power\":\"10\"}},{\"item_equipment_slot\":\"모자\"}],\"item_equipment_preset_1\":[],\"preset_no\":1}"
+    },
+    "after": {
+      "EQUIPMENT": "{\"item_equipment\":[{\"item_equipment_slot\":\"모자\"},{\"item_equipment_slot\":\"무기\",\"item_total_option\":{\"attack_power\":\"31\"},\"item_base_option\":{\"attack_power\":\"10\"}}],\"item_equipment_preset_1\":[],\"preset_no\":1}"
+    },
+    "expected": {
+      "changes": [
+        "EQUIPMENT|/item_equipment/0/item_total_option/attack_power|/item_equipment/1/item_total_option/attack_power|CHANGED|VALUE|VALUE|1|true"
+      ],
+      "compared": [
+        "EQUIPMENT"
+      ],
+      "skipped": [],
+      "diagnostics": []
+    }
+  },
+  {
+    "id": "missing-is-not-empty",
+    "before": {
+      "EQUIPMENT": "{\"item_equipment\":[],\"item_equipment_preset_1\":[]}"
+    },
+    "after": {
+      "EQUIPMENT": "{\"item_equipment\":[],\"item_equipment_preset_1\":[],\"item_equipment_preset_2\":[]}"
+    },
+    "expected": {
+      "changes": [
+        "EQUIPMENT|/item_equipment_preset_2|/item_equipment_preset_2|ADDED|MISSING|VALUE|-|true"
+      ],
+      "compared": [
+        "EQUIPMENT"
+      ],
+      "skipped": [],
+      "diagnostics": []
+    }
+  },
+  {
+    "id": "partial-scope",
+    "before": {
+      "SYMBOLS": "{\"symbol\":[]}"
+    },
+    "after": {},
+    "expected": {
+      "changes": [],
+      "compared": [],
+      "skipped": [
+        "SYMBOLS:FETCHED/NOT_REQUESTED"
+      ],
+      "diagnostics": []
+    }
+  },
+  {
+    "id": "rules-differ",
+    "before": {
+      "SYMBOLS": "{\"symbol\":[{\"symbol_str\":\"1\"}]}"
+    },
+    "after": {
+      "SYMBOLS": "{\"symbol\":[{\"symbol_str\":\"2\"}]}"
+    },
+    "expected": {
+      "changes": [
+        "SYMBOLS|/symbol/0/symbol_str|/symbol/0/symbol_str|CHANGED|VALUE|VALUE|-|true"
+      ],
+      "compared": [
+        "SYMBOLS"
+      ],
+      "skipped": [],
+      "diagnostics": [
+        "PARSER_VERSION_DIFFERENCE"
+      ]
+    },
+    "afterRules": "0.2"
+  },
+  {
+    "id": "malformed-array",
+    "before": {
+      "SYMBOLS": "{\"symbol\":[null]}"
+    },
+    "after": {
+      "SYMBOLS": "{\"symbol\":[]}"
+    },
+    "expected": {
+      "changes": [],
+      "compared": [],
+      "skipped": [
+        "SYMBOLS:INVALID_DOCUMENT"
+      ],
+      "diagnostics": []
+    }
+  },
+  {
+    "id": "duplicate-slots",
+    "before": {
+      "EQUIPMENT": "{\"item_equipment\":[{\"item_equipment_slot\":\"무기\",\"item_name\":\"A\"},{\"item_equipment_slot\":\"무기\",\"item_name\":\"B\"}]}"
+    },
+    "after": {
+      "EQUIPMENT": "{\"item_equipment\":[{\"item_equipment_slot\":\"무기\",\"item_name\":\"B\"},{\"item_equipment_slot\":\"무기\",\"item_name\":\"A\"}]}"
+    },
+    "expected": {
+      "changes": [
+        "EQUIPMENT|/item_equipment/0/item_name|/item_equipment/0/item_name|CHANGED|VALUE|VALUE|-|true",
+        "EQUIPMENT|/item_equipment/1/item_name|/item_equipment/1/item_name|CHANGED|VALUE|VALUE|-|true"
+      ],
+      "compared": [
+        "EQUIPMENT"
+      ],
+      "skipped": [],
+      "diagnostics": [
+        "DUPLICATE_ENTITY_KEY:EQUIPMENT:/item_equipment"
+      ]
+    }
+  },
+  {
+    "id": "preset-order",
+    "before": {
+      "EQUIPMENT": "{}"
+    },
+    "after": {
+      "EQUIPMENT": "{\"item_equipment_preset_10\":[],\"item_equipment_preset_2\":[]}"
+    },
+    "expected": {
+      "changes": [
+        "EQUIPMENT|/item_equipment_preset_2|/item_equipment_preset_2|ADDED|MISSING|VALUE|-|true",
+        "EQUIPMENT|/item_equipment_preset_10|/item_equipment_preset_10|ADDED|MISSING|VALUE|-|true"
+      ],
+      "compared": [
+        "EQUIPMENT"
+      ],
+      "skipped": [],
+      "diagnostics": []
+    }
+  },
+  {
+    "id": "unicode-and-pointer-order",
+    "before": {
+      "SYMBOLS": "{}"
+    },
+    "after": {
+      "SYMBOLS": "{\"😀\":1,\"\\ue000\":2,\"a/b~c\":3}"
+    },
+    "expected": {
+      "changes": [
+        "SYMBOLS|/a~1b~0c|/a~1b~0c|ADDED|MISSING|VALUE|-|true",
+        "SYMBOLS|/|/|ADDED|MISSING|VALUE|-|true",
+        "SYMBOLS|/😀|/😀|ADDED|MISSING|VALUE|-|true"
+      ],
+      "compared": [
+        "SYMBOLS"
+      ],
+      "skipped": [],
+      "diagnostics": []
+    }
+  },
+  {
+    "id": "identical",
+    "before": {
+      "SYMBOLS": "{\"symbol\":[{\"symbol_hp\":\"0\"}],\"unknown\":true}"
+    },
+    "after": {
+      "SYMBOLS": "{\"unknown\":true,\"symbol\":[{\"symbol_hp\":\"0\"}]}"
+    },
+    "expected": {
+      "changes": [],
+      "compared": [
+        "SYMBOLS"
+      ],
+      "skipped": [],
+      "diagnostics": []
+    }
+  },
+  {
+    "id": "unknown-preset-metadata",
+    "before": {
+      "EQUIPMENT": "{\"item_equipment\":[],\"item_equipment_preset_metadata\":\"old\"}"
+    },
+    "after": {
+      "EQUIPMENT": "{\"item_equipment\":[],\"item_equipment_preset_metadata\":\"new\"}"
+    },
+    "expected": {
+      "changes": [
+        "EQUIPMENT|/item_equipment_preset_metadata|/item_equipment_preset_metadata|CHANGED|VALUE|VALUE|-|true"
+      ],
+      "compared": [
+        "EQUIPMENT"
+      ],
+      "skipped": [],
+      "diagnostics": []
+    }
+  },
+  {
+    "id": "reported-stats-reorder",
+    "before": {
+      "REPORTED_STATS": "{\"final_stat\":[{\"stat_name\":\"STR\",\"stat_value\":\"10\"},{\"stat_name\":\"DEX\",\"stat_value\":\"20\"}]}"
+    },
+    "after": {
+      "REPORTED_STATS": "{\"final_stat\":[{\"stat_name\":\"DEX\",\"stat_value\":\"20\"},{\"stat_name\":\"STR\",\"stat_value\":\"12\"}]}"
+    },
+    "expected": {
+      "changes": [
+        "REPORTED_STATS|/final_stat/0/stat_value|/final_stat/1/stat_value|CHANGED|VALUE|VALUE|2|true"
+      ],
+      "compared": [
+        "REPORTED_STATS"
+      ],
+      "skipped": [],
+      "diagnostics": []
+    }
+  },
+  {
+    "id": "basic-level-number",
+    "before": {
+      "BASIC": "{\"character_level\":280}"
+    },
+    "after": {
+      "BASIC": "{\"character_level\":281}"
+    },
+    "expected": {
+      "changes": [
+        "BASIC|/character_level|/character_level|CHANGED|VALUE|VALUE|1|true"
+      ],
+      "compared": [
+        "BASIC"
+      ],
+      "skipped": [],
+      "diagnostics": []
+    }
+  },
+  {
+    "id": "future-skill-raw",
+    "before": {
+      "SKILL_6": "{\"future\":1}"
+    },
+    "after": {
+      "SKILL_6": "{\"future\":2}"
+    },
+    "expected": {
+      "changes": [
+        "SKILL_6|/future|/future|CHANGED|VALUE|VALUE|-|true"
+      ],
+      "compared": [
+        "SKILL_6"
+      ],
+      "skipped": [],
+      "diagnostics": []
+    }
+  },
+  {
+    "id": "reported-stat-missing-name-no-delta",
+    "before": {
+      "REPORTED_STATS": "{\"final_stat\":[{\"stat_value\":\"10\"}]}"
+    },
+    "after": {
+      "REPORTED_STATS": "{\"final_stat\":[{\"stat_value\":\"12\"}]}"
+    },
+    "expected": {
+      "changes": [
+        "REPORTED_STATS|/final_stat/0/stat_value|/final_stat/0/stat_value|CHANGED|VALUE|VALUE|-|true"
+      ],
+      "compared": [
+        "REPORTED_STATS"
+      ],
+      "skipped": [],
+      "diagnostics": []
+    }
+  }
+]

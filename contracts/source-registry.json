@@ -1,0 +1,167 @@
+{
+  "BASIC": {
+    "path": "/maplestory/v1/character/basic",
+    "grade": null,
+    "schema": "CharacterBasic",
+    "primary": ""
+  },
+  "REPORTED_STATS": {
+    "path": "/maplestory/v1/character/stat",
+    "grade": null,
+    "schema": "CharacterStat",
+    "primary": "final_stat"
+  },
+  "HYPER_STATS": {
+    "path": "/maplestory/v1/character/hyper-stat",
+    "grade": null,
+    "schema": "CharacterHyperStat",
+    "primary": ""
+  },
+  "PROPENSITY": {
+    "path": "/maplestory/v1/character/propensity",
+    "grade": null,
+    "schema": "CharacterPropensity",
+    "primary": ""
+  },
+  "ABILITIES": {
+    "path": "/maplestory/v1/character/ability",
+    "grade": null,
+    "schema": "CharacterAbility",
+    "primary": "ability_info"
+  },
+  "EQUIPMENT": {
+    "path": "/maplestory/v1/character/item-equipment",
+    "grade": null,
+    "schema": "CharacterItemEquipment",
+    "primary": "item_equipment"
+  },
+  "CASH": {
+    "path": "/maplestory/v1/character/cashitem-equipment",
+    "grade": null,
+    "schema": "CharacterCashItemEquipment",
+    "primary": "cash_item_equipment_base"
+  },
+  "SYMBOLS": {
+    "path": "/maplestory/v1/character/symbol-equipment",
+    "grade": null,
+    "schema": "CharacterSymbolEquipment",
+    "primary": "symbol"
+  },
+  "SET_EFFECTS": {
+    "path": "/maplestory/v1/character/set-effect",
+    "grade": null,
+    "schema": "CharacterSetEffect",
+    "primary": "set_effect"
+  },
+  "ANDROID": {
+    "path": "/maplestory/v1/character/android-equipment",
+    "grade": null,
+    "schema": "CharacterAndroidEquipment",
+    "primary": ""
+  },
+  "PETS": {
+    "path": "/maplestory/v1/character/pet-equipment",
+    "grade": null,
+    "schema": "CharacterPetEquipment",
+    "primary": ""
+  },
+  "SKILL_0": {
+    "path": "/maplestory/v1/character/skill",
+    "grade": "0",
+    "schema": "CharacterSkill",
+    "primary": "character_skill"
+  },
+  "SKILL_HYPER_PASSIVE": {
+    "path": "/maplestory/v1/character/skill",
+    "grade": "hyperpassive",
+    "schema": "CharacterSkill",
+    "primary": "character_skill"
+  },
+  "SKILL_HYPER_ACTIVE": {
+    "path": "/maplestory/v1/character/skill",
+    "grade": "hyperactive",
+    "schema": "CharacterSkill",
+    "primary": "character_skill"
+  },
+  "SKILL_5": {
+    "path": "/maplestory/v1/character/skill",
+    "grade": "5",
+    "schema": "CharacterSkill",
+    "primary": "character_skill"
+  },
+  "SKILL_6": {
+    "path": "/maplestory/v1/character/skill",
+    "grade": "6",
+    "schema": "CharacterSkill",
+    "primary": "character_skill"
+  },
+  "LINK_SKILLS": {
+    "path": "/maplestory/v1/character/link-skill",
+    "grade": null,
+    "schema": "CharacterLinkSkill",
+    "primary": "character_link_skill"
+  },
+  "V_MATRIX": {
+    "path": "/maplestory/v1/character/vmatrix",
+    "grade": null,
+    "schema": "CharacterVMatrix",
+    "primary": "character_v_core_equipment"
+  },
+  "HEXA_CORES": {
+    "path": "/maplestory/v1/character/hexamatrix",
+    "grade": null,
+    "schema": "CharacterHexaMatrix",
+    "primary": "character_hexa_core_equipment"
+  },
+  "HEXA_STATS": {
+    "path": "/maplestory/v1/character/hexamatrix-stat",
+    "grade": null,
+    "schema": "CharacterHexaMatrixStat",
+    "primary": "character_hexa_stat_core"
+  },
+  "OTHER_STATS": {
+    "path": "/maplestory/v1/character/other-stat",
+    "grade": null,
+    "schema": "CharacterOtherStat",
+    "primary": "other_stat"
+  },
+  "RING_EXCHANGE": {
+    "path": "/maplestory/v1/character/ring-exchange-skill-equipment",
+    "grade": null,
+    "schema": "RingExchangeSkillEquipment",
+    "primary": "",
+    "valid_from": "2025-08-21",
+    "valid_until": "2026-03-18"
+  },
+  "RING_RESERVE": {
+    "path": "/maplestory/v1/character/ring-reserve-skill-equipment",
+    "grade": null,
+    "schema": "RingReserveSkillEquipment",
+    "primary": "",
+    "valid_from": "2026-03-19"
+  },
+  "UNION_BASIC": {
+    "path": "/maplestory/v1/user/union",
+    "grade": null,
+    "schema": "Union",
+    "primary": ""
+  },
+  "UNION_RAIDER": {
+    "path": "/maplestory/v1/user/union-raider",
+    "grade": null,
+    "schema": "UnionRaider",
+    "primary": ""
+  },
+  "UNION_ARTIFACT": {
+    "path": "/maplestory/v1/user/union-artifact",
+    "grade": null,
+    "schema": "UnionArtifact",
+    "primary": "union_artifact_crystal"
+  },
+  "UNION_CHAMPION": {
+    "path": "/maplestory/v1/user/union-champion",
+    "grade": null,
+    "schema": "UnionChampion",
+    "primary": "union_champion"
+  }
+}

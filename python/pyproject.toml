@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "maple-library"
+version = "0.1.0.dev1"
+description = "Lossless MapleStory character document parsing and data comparison"
+requires-python = ">=3.12"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = ["httpx==0.28.1"]
+
+[project.urls]
+Repository = "https://github.com/Kimgooner/maple-kit"
+Issues = "https://github.com/Kimgooner/maple-kit/issues"
+
+[project.optional-dependencies]
+test = ["pytest==8.4.2"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+maple_library = ["py.typed", "registry.json", "option-aliases.json", "option-rules.json", "schema-overrides.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

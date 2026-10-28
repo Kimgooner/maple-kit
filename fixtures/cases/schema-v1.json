@@ -1,0 +1,40 @@
+[
+  {
+    "source": "EQUIPMENT",
+    "json": {
+      "item_equipment": [
+        {
+          "scroll_upgradeable_count": "7"
+        }
+      ],
+      "title_preset1": {
+        "title_name": "synthetic",
+        "disable_flag": "0"
+      }
+    },
+    "pointer": "/title_preset1",
+    "preset": "title_preset1",
+    "extensions": 4
+  },
+  {
+    "source": "PETS",
+    "json": {
+      "world_share_pet_equipment_preset": [
+        {
+          "preset_no": 4,
+          "slot_no": 2,
+          "item_option": [
+            {
+              "option_type": "공격력",
+              "option_value": "13"
+            }
+          ],
+          "item_date_expire": null
+        }
+      ]
+    },
+    "pointer": "/world_share_pet_equipment_preset",
+    "preset": "world_share_pet_equipment_preset",
+    "extensions": 9
+  }
+]
