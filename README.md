@@ -6,11 +6,15 @@
 
 현재·과거 캐릭터 조회, 필요한 소스만 선택한 조회, 원본·프리셋 보존, 옵션 해석과 데이터 비교를 제공합니다. 전투력 계산이나 효과 적용 판단은 수행하지 않습니다. 해석하지 못한 문구도 원문으로 보존합니다.
 
-- [설치·임포트·장비/심볼 실행 예제](docs/usage.md#설치와-임포트)
-- [선택 가능한 소스 27개와 필드 접근](docs/usage.md#선택-가능한-소스-27개)
-- [그룹 조회](docs/usage.md#전체선택그룹-조회) · [프리셋](docs/usage.md#프리셋-읽기) · [오류 처리](docs/usage.md#실패와-진단)
-- [코드 에이전트용 체크리스트](docs/usage.md#코드-에이전트용-체크리스트)
-- [Java 빌드](java/README.md) · [Python 설치](python/README.md)
+| 시작하려는 일 | 안내 |
+| --- | --- |
+| 설치하고 첫 캐릭터 가져오기 | [시작하기](docs/usage.md) |
+| 장비·심볼·유니온 화면 만들기 | [이미지와 코드로 보는 화면 예제](docs/frontend.md) |
+| 필드·소스·오류 처리 찾아보기 | [API 참고](docs/reference.md) |
+
+![장비 툴팁과 심볼·유니온 화면 예제](docs/images/frontend-desktop.png)
+
+실제 HTML 예제를 캡처한 화면입니다. 합성 데이터와 자체 제작한 샘플 아이콘을 사용합니다. [예제 열기 방법](docs/frontend.md#예제-직접-열어보기)을 참고하세요.
 
 간단히 가져와서 모델로 읽거나 화면용 JSON으로 반환할 수 있습니다.
 
@@ -39,7 +43,7 @@ try (var maple = new MapleClient(apiKey)) {
 }
 ```
 
-Java import는 `org.whitedoggy.maplelibrary.MapleClient`, `org.whitedoggy.maplelibrary.Source`, `java.util.Set`입니다. [27개 소스의 간편 접근, 장비·심볼·유니온 모델과 프론트엔드 예제](docs/usage.md#간편-모델과-화면용-데이터)를 참고하세요. 기존 원본 API도 유지합니다.
+Java import는 `org.whitedoggy.maplelibrary.MapleClient`, `org.whitedoggy.maplelibrary.Source`, `java.util.Set`입니다. [27개 소스의 간편 접근과 모델 상세](docs/reference.md#소스별-간편-접근)를 참고하세요. 기존 원본 API도 유지합니다.
 
 ```text
 java/       Java 21 라이브러리와 테스트

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Maple Kit — 화면 예제</title>
+<style>
+:root{color-scheme:light;--ink:#23352f;--muted:#73847d;--line:#dfe7e1;--green:#218260;--paper:#f6f8f5}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:14px;line-height:1.5}main{max-width:1200px;margin:auto;padding:34px 36px 24px}header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.brand{font-size:17px;font-weight:750;letter-spacing:-.4px}.brand i{color:var(--green);font-style:normal;margin-right:8px}.sample{font-size:11px;letter-spacing:.12em;font-weight:700;color:var(--muted)}h1{font-size:30px;line-height:1.3;letter-spacing:-1.2px;margin:0 0 7px}.lede{color:var(--muted);margin:0 0 27px}h2{font-size:15px;margin:0;letter-spacing:-.3px}.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}.number{font-size:11px;background:#e9eeea;border-radius:12px;padding:3px 9px;color:#6c7c73}.layout{display:grid;grid-template-columns:260px minmax(340px,1fr) 290px;gap:20px;align-items:start}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}.equipment-list{display:grid;gap:10px}.equipment{appearance:none;text-align:left;width:100%;display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:14px 12px;background:#fff;color:var(--ink);cursor:pointer;font:inherit}.equipment[aria-pressed=true]{border-color:#49a986;background:#f2faf5;box-shadow:0 0 0 1px #49a986}.equipment:hover{border-color:#49a986}.equipment:focus-visible{outline:3px solid #75a9ec;outline-offset:3px}.equipment img{height:52px;width:52px}.equipment strong{display:block;font-size:14px}.equipment small{display:block;color:var(--muted);font-size:11px}.equipment .mini{display:block;color:#278561;font-size:11px;margin-top:4px}.hint{font-size:12px;color:var(--muted);margin:16px 1px 0}.callout{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}.callout strong{color:#46745c;display:block;font-size:12px;margin-bottom:5px}.tooltip{border:1px solid #374b52;border-radius:18px;background:#2b3d44;color:#f2f6f5;box-shadow:0 14px 36px #213f3312;padding:23px 24px}.stars{text-align:center;color:#efcd69;font-size:14px;letter-spacing:1.2px;line-height:1.55;min-height:22px}.tooltip h2{font-size:23px;text-align:center;margin:8px 0 18px;letter-spacing:-.8px}.item-hero{display:flex;align-items:center;gap:17px;padding-bottom:18px;border-bottom:1px solid #526168}.item-hero img{width:76px;height:76px;border-radius:15px}.item-meta{color:#bac7ca;font-size:12px}.item-meta strong{color:#f1f4f2;font-size:14px;display:block;margin-top:7px}.pill{display:inline-block;background:#43555e;border-radius:20px;padding:3px 10px;margin-right:4px;font-size:11px}.stats{padding:17px 0 9px}.stat{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;padding:3px 0;line-height:1.6;font-size:13px}.stat-label{min-width:48px;color:#e1e8e9}.stat-value{color:#6fdfd9;font-weight:700}.breakdown{color:#a6b7be;font-size:11px}.stat-base{color:#dbe3e5}.stat-starforce{color:#f3cf67}.stat-scroll{color:#b1a5ec}.stat-additional{color:#70d6b2}.stat-exceptional{color:#ec9ccc}.enhancement{font-size:11px;color:#c1cdd0;margin:4px 0 15px}.potential{border-top:1px solid #526168;padding-top:13px;margin-top:13px}.potential h3{font-size:12px;color:#d5e986;margin:0 0 7px;font-weight:650}.potential .line{font-size:13px;padding:2px 0;display:flex;gap:8px}.potential .line:before{content:'▪';color:#d5e986}.grade-epic h3{color:#b8a4ef}.soul{font-size:12px;color:#d4dde0;border-top:1px solid #526168;padding-top:13px;margin-top:14px}.soul strong{display:block;color:#edf3f3;margin-bottom:4px}.soul .potential{border:0;padding-top:9px;margin-top:0}.right{display:grid;gap:16px}.symbol{display:flex;gap:12px;padding:13px 0}.symbol+.symbol{border-top:1px solid #edf0ec}.symbol img{height:44px;width:44px}.symbol strong{font-size:12px;display:block}.symbol .meta{font-size:11px;color:var(--muted);margin-top:2px}.symbol .effect{font-size:12px;color:var(--green);margin-top:4px}.symbol .growth{font-size:10px;color:#95a198;margin-top:4px}.union-level{font-size:30px;letter-spacing:-1px;font-weight:750;line-height:1;margin-top:4px}.union-grade{font-size:11px;color:var(--muted);margin:6px 0 15px}.board{display:grid;grid-template-columns:repeat(9,1fr);gap:3px;background:#f1f5f1;padding:8px;border-radius:10px}.cell{aspect-ratio:1;background:#e3eae4;border-radius:2px}.cell.block-0{background:#75b79e}.cell.block-1{background:#929dcb}.cell.block-2{background:#d4b675}.legend{display:flex;gap:9px;margin-top:9px;font-size:10px;color:var(--muted)}.legend i{display:inline-block;width:6px;height:6px;border-radius:2px;margin-right:4px}.union-effects{border-top:1px solid var(--line);padding-top:12px;margin-top:14px;font-size:11px;color:#52735f}.union-effects div{margin:4px 0}.note{color:#89968d;font-size:10px;margin-top:10px}footer{display:flex;justify-content:space-between;gap:15px;margin-top:24px;padding-top:16px;border-top:1px solid var(--line);color:#89968d;font-size:10px}.empty{color:var(--muted);font-size:12px}.tooltip .empty{color:#bccbd0}@media(max-width:1000px){main{padding:24px}.layout{grid-template-columns:235px 1fr}.right{grid-column:1/-1;grid-template-columns:1fr 1fr}}@media(max-width:620px){main{padding:20px 16px}header{margin-bottom:24px}h1{font-size:26px}.layout{display:flex;flex-direction:column;gap:16px}.card,.tooltip,.right{width:100%}.right{display:flex;flex-direction:column}.equipment-list{grid-template-columns:1fr 1fr}.equipment{padding:12px 8px;gap:6px}.equipment img{width:38px;height:38px}.equipment strong{font-size:12px}.equipment small{font-size:10px}.callout{display:none}.tooltip{padding:22px}footer{flex-direction:column;gap:5px}.lede{font-size:12px}}
+</style>
+</head>
+<body>
+<main>
+<header><div class="brand"><i>✳</i> maple kit</div><span class="sample">FRONTEND EXAMPLE · 01</span></header>
+<h1>캐릭터 데이터를, 화면으로.</h1>
+<p class="lede">같은 데이터로 만드는 장비 목록과 툴팁, 심볼과 유니온.</p>
+<div class="layout">
+<section class="card"><div class="section-title"><h2>장비</h2><span id="preset" class="number"></span></div><div id="equipment-list" class="equipment-list"></div><p class="hint">장비를 선택하면 상세 정보를 볼 수 있어요.</p><div class="callout"><strong>목록도, 툴팁도 같은 데이터</strong>이름과 강화 배지는 목록에,<br>스탯과 잠재능력은 상세 화면에.</div></section>
+<section id="tooltip" class="tooltip" aria-label="장비 상세 정보" aria-live="polite"></section>
+<aside class="right"><section class="card"><div class="section-title"><h2>심볼</h2><span id="symbol-count" class="number"></span></div><div id="symbols"></div></section><section class="card"><div class="section-title"><h2>유니온</h2><span class="number">배치 미리보기</span></div><div id="union"></div></section></aside>
+</div>
+<footer><span>합성 데이터 · 예제용 자체 제작 아이콘 · 실제 캐릭터 정보가 아닙니다.</span><span>Data based on NEXON Open API</span></footer>
+</main>
+<script src="view-data.js"></script>
+<script>
+// Data comes from Character.to_view(). Rendering has no dependency on Python or Java.
+const view = window.MAPLE_DEMO_VIEW;
+function element(tag, text, className) {
+  const node = document.createElement(tag);
+  if (text != null) node.textContent = text;
+  if (className) node.className = className;
+  return node;
+}
+function icon(item) {
+  const img = element('img');
+  img.src = item.icon_url; img.alt = item.name ?? '예제 아이콘';
+  return img;
+}
+function potential(section) {
+  if (!section) return null;
+  const box = element('div', null, `potential grade-${section.grade?.toLowerCase()}`);
+  box.append(element('h3', `${section.title} · ${section.grade_label ?? '등급 정보 없음'}${section.amplification_text ? ' · ' + section.amplification_text : ''}`));
+  for (const line of section.lines ?? []) box.append(element('div', line.text, 'line'));
+  return box;
+}
+function renderItem(item) {
+  const target = document.getElementById('tooltip'); target.replaceChildren();
+  if (!item) { target.append(element('p', '장비 정보가 없습니다.', 'empty')); return; }
+  // Decorative stars belong to the frontend; the numeric value is provided by the DTO.
+  const stars = Math.max(0, Math.min(item.starforce ?? 0, 50));
+  const starRow = element('div', '★'.repeat(stars).match(/.{1,15}/g)?.join('\n') ?? '', 'stars');
+  starRow.style.whiteSpace = 'pre-line'; starRow.setAttribute('aria-label', `${stars}성`);
+  target.append(starRow, element('h2', item.display_name));
+  const hero = element('div', null, 'item-hero'); if (item.icon_url) hero.append(icon(item));
+  const meta = element('div', null, 'item-meta');
+  for (const value of [item.slot, item.category]) if (value) meta.append(element('span', value, 'pill'));
+  meta.append(element('strong', item.required_level == null ? '요구 레벨 정보 없음' : `요구 레벨  Lv. ${item.required_level}`));
+  hero.append(meta); target.append(hero);
+  const stats = element('div', null, 'stats');
+  for (const row of item.stat_rows ?? []) {
+    const line = element('div', null, 'stat');
+    line.append(element('span', row.label, 'stat-label'), element('span', row.value_text, 'stat-value'));
+    if (row.components?.length) {
+      const breakdown = element('span', '(', 'breakdown');
+      row.components.forEach((c, i) => {
+        if (i) breakdown.append(document.createTextNode(' '));
+        breakdown.append(element('span', c.text, `stat-${c.source.toLowerCase()}`));
+      });
+      breakdown.append(document.createTextNode(')')); line.append(breakdown);
+    }
+    stats.append(line);
+  }
+  if (item.stat_rows == null) stats.append(element('p', '스탯 정보를 확인할 수 없습니다.', 'empty'));
+  target.append(stats);
+  if (item.enhancement?.text) target.append(element('div', item.enhancement.text, 'enhancement'));
+  for (const section of [item.potential, item.additional_potential]) { const box = potential(section); if (box) target.append(box); }
+  if (item.soul) {
+    const box = element('div', null, 'soul'); box.append(element('strong', `소울 · ${item.soul.name ?? ''}`));
+    for (const line of item.soul.option_lines ?? []) box.append(element('div', line.text));
+    if (item.soul.attack_power != null && item.soul.attack_power !== '0') box.append(element('div', `공격력 +${item.soul.attack_power}`));
+    const soulPotential = potential(item.soul.potential); if (soulPotential) box.append(soulPotential);
+    target.append(box);
+  }
+  if (item.diagnostics?.length) target.append(element('p', '일부 필드를 표시할 수 없습니다.', 'empty'));
+}
+const items = view.equipment?.items;
+document.getElementById('preset').textContent = view.equipment?.current_preset_number == null ? '프리셋 정보 없음' : `프리셋 ${view.equipment.current_preset_number}`;
+const list = document.getElementById('equipment-list');
+for (const [index, item] of (items ?? []).entries()) {
+  const button = element('button', null, 'equipment'); button.type = 'button'; button.setAttribute('aria-pressed', index === 0 ? 'true' : 'false');
+  if (item.icon_url) button.append(icon(item));
+  const body = element('span'); body.append(element('small', item.slot), element('strong', item.name));
+  body.append(element('span', item.badges.map(b => b.text).join(' · '), 'mini')); button.append(body);
+  button.addEventListener('click', () => { for (const other of list.children) other.setAttribute('aria-pressed', 'false'); button.setAttribute('aria-pressed', 'true'); renderItem(item); });
+  list.append(button);
+}
+if (!items?.length) list.append(element('p', items == null ? '장비 정보를 불러오지 못했습니다.' : '장착한 장비가 없습니다.', 'empty'));
+renderItem(items?.[0]);
+const symbols = view.symbols?.items;
+document.getElementById('symbol-count').textContent = symbols == null ? '정보 없음' : `${symbols.length}개`;
+for (const symbol of symbols ?? []) {
+  const row = element('div', null, 'symbol'); if (symbol.icon_url) row.append(icon(symbol));
+  const body = element('div'); body.append(element('strong', symbol.name), element('div', [symbol.level_text, symbol.force_text].filter(Boolean).join(' · '), 'meta'));
+  for (const stat of symbol.stat_rows ?? []) body.append(element('div', stat.text, 'effect'));
+  if (symbol.growth?.current != null && symbol.growth?.required != null) body.append(element('div', `성장 수량 ${symbol.growth.current} / 필요 ${symbol.growth.required}`, 'growth'));
+  row.append(body); document.getElementById('symbols').append(row);
+}
+const union = document.getElementById('union');
+if (view.union?.basic) {
+  union.append(element('div', view.union.basic.level?.toLocaleString('ko-KR'), 'union-level'), element('div', view.union.basic.grade, 'union-grade'));
+  const board = element('div', null, 'board'); board.setAttribute('aria-label', '일부 유니온 블록의 배치 예제');
+  const blocks = view.union.raider?.blocks ?? [];
+  for (let y = 4; y >= -4; y--) for (let x = -4; x <= 4; x++) {
+    const block = blocks.findIndex(b => b.positions?.some(p => p.x === x && p.y === y));
+    const cell = element('div', null, `cell${block >= 0 ? ' block-' + block : ''}`); cell.title = `(${x}, ${y})`; board.append(cell);
+  }
+  union.append(board);
+  const legend = element('div', null, 'legend'); const colors = ['#75b79e','#929dcb','#d4b675'];
+  blocks.forEach((b, index) => { const label = element('span'); const dot = element('i'); dot.style.background = colors[index % colors.length]; label.append(dot, document.createTextNode(b.job)); legend.append(label); });
+  union.append(legend);
+  const effects = element('div', null, 'union-effects');
+  for (const line of view.union.raider?.occupied_effects ?? []) effects.append(element('div', line.text));
+  union.append(effects, element('div', '표시 범위 x/y −4~4 · 일부 블록 예시', 'note'));
+} else union.append(element('p', '유니온 정보를 불러오지 못했습니다.', 'empty'));
+</script>
+</body>
+</html>

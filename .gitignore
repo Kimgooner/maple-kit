@@ -24,6 +24,15 @@ coverage/
 /contracts/
 /docs/*
 !/docs/usage.md
+!/docs/reference.md
+!/docs/frontend.md
+!/docs/examples/
+/docs/examples/*
+!/docs/examples/view-demo.html
+!/docs/examples/view-data.js
+!/docs/images/
+/docs/images/*
+!/docs/images/frontend-desktop.png
 **/.gitkeep
 /tools/live_matrix.py
 /tools/live_smoke.py

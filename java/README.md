@@ -8,7 +8,7 @@ Java21, package `org.whitedoggy.maplelibrary`, Gradle9.4.1, 내부 Jackson core3
 
 [사용 안내](../docs/usage.md)에서 API와 지원 범위를 확인할 수 있다. 공개 배포 좌표는 미확정이다.
 
-전체 조회·소스별 선택·필드 접근·프리셋·오류 처리는 [공통 사용 안내](../docs/usage.md)를 참고하세요. 실행 가능한 장비/심볼 예제는 [Quickstart.java](examples/Quickstart.java)입니다.
+전체 조회·소스별 선택·필드 접근·프리셋·오류 처리는 [시작하기](../docs/usage.md)와 [API 참고](../docs/reference.md)를 참고하세요. 실행 가능한 장비/심볼 예제는 [Quickstart.java](examples/Quickstart.java)입니다.
 
 ```java
 var sheet = client.getCharacterSelected(request, Set.of(Source.EQUIPMENT)).join();

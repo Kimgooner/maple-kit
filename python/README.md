@@ -18,7 +18,7 @@ print(symbols.items[0].to_view()['stat_rows'])
 
 외부 게시 전이며 공개 패키지명은 미확정이다.
 
-전체 조회·소스별 선택·필드 접근·프리셋·오류 처리는 [공통 사용 안내](../docs/usage.md)를 참고하세요. 실행 가능한 장비/심볼 예제는 [quickstart.py](examples/quickstart.py)입니다.
+전체 조회·소스별 선택·필드 접근·프리셋·오류 처리는 [시작하기](../docs/usage.md)와 [API 참고](../docs/reference.md)를 참고하세요. 실행 가능한 장비/심볼 예제는 [quickstart.py](examples/quickstart.py)입니다.
 
 ## 라이선스 및 NEXON Open API 이용 안내
 
