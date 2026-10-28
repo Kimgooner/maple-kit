@@ -8,6 +8,8 @@ Java21, package `org.whitedoggy.maplelibrary`, Gradle9.4.1, 내부 Jackson core3
 
 [사용 안내](../docs/usage.md)에서 API와 지원 범위를 확인할 수 있다. 공개 배포 좌표는 미확정이다.
 
+전체 조회·소스별 선택·필드 접근·프리셋·오류 처리는 [공통 사용 안내](../docs/usage.md)를 참고하세요. 실행 가능한 장비/심볼 예제는 [Quickstart.java](examples/Quickstart.java)입니다.
+
 ## 라이선스 및 NEXON Open API 이용 안내
 
 이 프로젝트의 자체 작성 코드는 [MIT License](../LICENSE)로 제공합니다. 저작권 및 라이선스 고지를 유지하면 사용·수정·재배포할 수 있습니다.
