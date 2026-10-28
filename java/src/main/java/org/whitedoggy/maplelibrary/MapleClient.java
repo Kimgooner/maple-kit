@@ -27,6 +27,14 @@ public final class MapleClient implements AutoCloseable {
         scheduler=Executors.newSingleThreadScheduledExecutor(r->{Thread t=new Thread(r,"maple-client-timer");t.setDaemon(true);return t;});gate=new Gate(config.concurrency());
     }
     @Override public String toString(){return "MapleClient[apiKey=<redacted>]";}
+    public CompletableFuture<MapleCharacter> character(String nickname) { return character(CharacterRequest.nickname(nickname),SourceRegistry.allSources()); }
+    public CompletableFuture<MapleCharacter> character(String nickname,Set<Source> sources) { return character(CharacterRequest.nickname(nickname),sources); }
+    public CompletableFuture<MapleCharacter> character(CharacterRequest request,Set<Source> sources) {
+        var collected=getCharacterSelected(request,sources);
+        var result=collected.thenApply(CharacterSheet::asCharacter);
+        result.whenComplete((value,error)->{if(result.isCancelled())collected.cancel(true);});
+        return result;
+    }
     public CompletableFuture<CharacterSheet> getCharacter(CharacterRequest request){return getCharacterSelected(request,SourceRegistry.allSources());}
     public CompletableFuture<CharacterSheet> getCharacterSelected(CharacterRequest request,Set<Source> sources){
         Set<Source> expanded=SourceRegistry.expand(sources);Set<Source> requested=Set.copyOf(sources);

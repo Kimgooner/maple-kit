@@ -22,6 +22,7 @@ public final class CharacterSheet {
     public String parserRulesVersion() { return parserRulesVersion; }
     public Map<Source, Document> documents() { return documents; }
     public Document document(Source source) { return documents.getOrDefault(source, new Document(source, Document.Status.NOT_REQUESTED, null)); }
+    public MapleCharacter asCharacter() { return new MapleCharacter(this); }
     public SheetDiff compareTo(CharacterSheet after) { return SheetDiff.compare(this, after); }
     @Override public String toString() { return "CharacterSheet[ocid=<redacted>, sources="+documents.keySet()+"]"; }
     public Set<Source> requestedSources(){return requestedSources;}

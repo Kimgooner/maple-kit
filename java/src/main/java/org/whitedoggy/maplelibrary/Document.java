@@ -51,6 +51,7 @@ public record Document(Source source, Status status, RawValue raw, java.time.Ins
         }
         return true;
     }
+    public FriendlyNode asModel() { return Models.create(Presentation.SOURCES.get(source.name()).get(1),view()); }
     public EntityView primary() { return view(); }
     public FieldValue<List<EntityView>> collection(String name) { return view().entities(name); }
     public Map<String, FieldValue<RawValue>> presets() { return SourceRegistry.presets(this); }

@@ -23,7 +23,7 @@ test = ["pytest==8.4.2"]
 where = ["src"]
 
 [tool.setuptools.package-data]
-maple_library = ["py.typed", "registry.json", "option-aliases.json", "option-rules.json", "schema-overrides.json"]
+maple_library = ["py.typed", "registry.json", "option-aliases.json", "option-rules.json", "schema-overrides.json", "presentation.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

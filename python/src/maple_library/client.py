@@ -123,6 +123,12 @@ class MapleClient:
         await self._http.aclose()
         self._key=''
 
+    async def character(self, nickname: str, *, sources=None, on_date=None, allow_partial=False):
+        """Collect once and return the convenient typed facade; attributes never fetch."""
+        request = CharacterRequest(nickname=nickname, on_date=on_date, allow_partial=allow_partial)
+        sheet = await self.get_character_selected(request, all_sources() if sources is None else sources)
+        return sheet.as_character()
+
     async def get_character(self, request):
         return await self.get_character_selected(request, all_sources())
 

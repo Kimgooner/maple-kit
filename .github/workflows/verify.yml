@@ -19,6 +19,7 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
       - run: python -m pip install './python[test]' build
+      - run: python tools/generate_models.py --check
       - run: python -m pytest python/tests
       - run: cd java && ./gradlew test build --no-daemon
       - run: python tools/check_conformance.py

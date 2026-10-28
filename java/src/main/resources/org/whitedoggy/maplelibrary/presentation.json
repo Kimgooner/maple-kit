@@ -1,0 +1,1658 @@
+{
+  "version": "1",
+  "models": {
+    "StatBlock": {
+      "str": {
+        "path": "str",
+        "type": "number"
+      },
+      "dex": {
+        "path": "dex",
+        "type": "number"
+      },
+      "int": {
+        "path": "int",
+        "type": "number"
+      },
+      "luk": {
+        "path": "luk",
+        "type": "number"
+      },
+      "max_hp": {
+        "path": "max_hp",
+        "type": "number"
+      },
+      "max_mp": {
+        "path": "max_mp",
+        "type": "number"
+      },
+      "attack_power": {
+        "path": "attack_power",
+        "type": "number"
+      },
+      "magic_power": {
+        "path": "magic_power",
+        "type": "number"
+      },
+      "defense": {
+        "path": "armor",
+        "type": "number"
+      },
+      "speed": {
+        "path": "speed",
+        "type": "number"
+      },
+      "jump": {
+        "path": "jump",
+        "type": "number"
+      },
+      "all_stat_percent": {
+        "path": "all_stat",
+        "type": "number"
+      },
+      "max_hp_percent": {
+        "path": "max_hp_rate",
+        "type": "number"
+      },
+      "max_mp_percent": {
+        "path": "max_mp_rate",
+        "type": "number"
+      },
+      "damage_percent": {
+        "path": "damage",
+        "type": "number"
+      },
+      "boss_damage_percent": {
+        "path": "boss_damage",
+        "type": "number"
+      },
+      "ignore_defense_percent": {
+        "path": "ignore_monster_armor",
+        "type": "number"
+      },
+      "drop_rate_percent": {
+        "path": "drop_rate",
+        "type": "number"
+      },
+      "meso_rate_percent": {
+        "path": "meso_rate",
+        "type": "number"
+      },
+      "exp_rate_percent": {
+        "path": "exp_rate",
+        "type": "number"
+      }
+    },
+    "ItemOptions": {
+      "base": {
+        "path": "item_base_option",
+        "type": "StatBlock"
+      },
+      "additional": {
+        "path": "item_add_option",
+        "type": "StatBlock"
+      },
+      "scroll": {
+        "path": "item_etc_option",
+        "type": "StatBlock"
+      },
+      "starforce": {
+        "path": "item_starforce_option",
+        "type": "StatBlock"
+      },
+      "exceptional": {
+        "path": "item_exceptional_option",
+        "type": "StatBlock"
+      }
+    },
+    "Growth": {
+      "level": {
+        "path": "growth_level",
+        "type": "integer"
+      },
+      "exp": {
+        "path": "growth_exp",
+        "type": "number"
+      }
+    },
+    "Enhancement": {
+      "upgrade_count": {
+        "path": "scroll_upgrade",
+        "type": "integer"
+      },
+      "remaining_count": {
+        "path": "scroll_upgradable_count|scroll_upgradeable_count",
+        "type": "integer"
+      },
+      "resilience_count": {
+        "path": "scroll_resilience_count",
+        "type": "integer"
+      },
+      "golden_hammer_flag": {
+        "path": "golden_hammer_flag",
+        "type": "text"
+      },
+      "starforce_scroll_flag": {
+        "path": "starforce_scroll_flag",
+        "type": "text"
+      }
+    },
+    "Appearance": {
+      "name": {
+        "path": "item_shape_name",
+        "type": "text"
+      },
+      "icon": {
+        "path": "item_shape_icon",
+        "type": "text"
+      }
+    },
+    "Item": {
+      "name": {
+        "path": "item_name",
+        "type": "text"
+      },
+      "slot": {
+        "path": "item_equipment_slot|equipment_slot",
+        "type": "text"
+      },
+      "part": {
+        "path": "item_equipment_part",
+        "type": "text"
+      },
+      "icon": {
+        "path": "item_icon",
+        "type": "text"
+      },
+      "description": {
+        "path": "item_description",
+        "type": "text"
+      },
+      "gender": {
+        "path": "item_gender",
+        "type": "text"
+      },
+      "required_level": {
+        "path": "item_base_option/base_equipment_level",
+        "type": "integer"
+      },
+      "level_increase": {
+        "path": "equipment_level_increase",
+        "type": "integer"
+      },
+      "level_decrease": {
+        "path": "item_total_option/equipment_level_decrease",
+        "type": "integer"
+      },
+      "starforce": {
+        "path": "starforce",
+        "type": "integer"
+      },
+      "stats": {
+        "path": "item_total_option",
+        "type": "StatBlock"
+      },
+      "options": {
+        "path": "",
+        "type": "ItemOptions"
+      },
+      "appearance": {
+        "path": "",
+        "type": "Appearance"
+      },
+      "growth": {
+        "path": "",
+        "type": "Growth"
+      },
+      "scrolls": {
+        "path": "",
+        "type": "Enhancement"
+      },
+      "special_ring_level": {
+        "path": "special_ring_level",
+        "type": "integer"
+      },
+      "expires_at": {
+        "path": "date_expire",
+        "type": "text"
+      },
+      "cuttable_count": {
+        "path": "cuttable_count",
+        "type": "integer"
+      }
+    },
+    "Title": {
+      "name": {
+        "path": "title_name",
+        "type": "text"
+      },
+      "icon": {
+        "path": "title_icon",
+        "type": "text"
+      },
+      "description": {
+        "path": "title_description",
+        "type": "text"
+      },
+      "expires_at": {
+        "path": "date_expire",
+        "type": "text"
+      },
+      "option_expires_at": {
+        "path": "date_option_expire",
+        "type": "text"
+      },
+      "shape_name": {
+        "path": "title_shape_name",
+        "type": "text"
+      },
+      "shape_icon": {
+        "path": "title_shape_icon",
+        "type": "text"
+      },
+      "disable_flag": {
+        "path": "disable_flag",
+        "type": "text"
+      }
+    },
+    "MedalAppearance": {
+      "name": {
+        "path": "medal_shape_name",
+        "type": "text"
+      },
+      "icon": {
+        "path": "medal_shape_icon",
+        "type": "text"
+      },
+      "description": {
+        "path": "medal_shape_description",
+        "type": "text"
+      },
+      "changed_name": {
+        "path": "medal_shape_changed_name",
+        "type": "text"
+      },
+      "changed_icon": {
+        "path": "medal_shape_changed_icon",
+        "type": "text"
+      }
+    },
+    "Equipment": {
+      "items": {
+        "path": "item_equipment",
+        "type": "list:Item"
+      },
+      "current_preset_number": {
+        "path": "preset_no",
+        "type": "integer"
+      },
+      "title": {
+        "path": "title",
+        "type": "Title"
+      },
+      "medal_appearance": {
+        "path": "medal_shape",
+        "type": "MedalAppearance"
+      },
+      "dragon_items": {
+        "path": "dragon_equipment",
+        "type": "list:Item"
+      },
+      "mechanic_items": {
+        "path": "mechanic_equipment",
+        "type": "list:Item"
+      }
+    },
+    "SymbolGrowth": {
+      "current": {
+        "path": "symbol_growth_count",
+        "type": "number"
+      },
+      "required": {
+        "path": "symbol_require_growth_count",
+        "type": "number"
+      }
+    },
+    "SymbolStats": {
+      "str": {
+        "path": "symbol_str",
+        "type": "number"
+      },
+      "dex": {
+        "path": "symbol_dex",
+        "type": "number"
+      },
+      "int": {
+        "path": "symbol_int",
+        "type": "number"
+      },
+      "luk": {
+        "path": "symbol_luk",
+        "type": "number"
+      },
+      "max_hp": {
+        "path": "symbol_hp",
+        "type": "number"
+      },
+      "drop_rate_percent": {
+        "path": "symbol_drop_rate",
+        "type": "number"
+      },
+      "meso_rate_percent": {
+        "path": "symbol_meso_rate",
+        "type": "number"
+      },
+      "exp_rate_percent": {
+        "path": "symbol_exp_rate",
+        "type": "number"
+      }
+    },
+    "Symbol": {
+      "name": {
+        "path": "symbol_name",
+        "type": "text"
+      },
+      "icon": {
+        "path": "symbol_icon",
+        "type": "text"
+      },
+      "description": {
+        "path": "symbol_description",
+        "type": "text"
+      },
+      "other_effect_description": {
+        "path": "symbol_other_effect_description",
+        "type": "text"
+      },
+      "level": {
+        "path": "symbol_level",
+        "type": "integer"
+      },
+      "force": {
+        "path": "symbol_force",
+        "type": "number"
+      },
+      "stats": {
+        "path": "",
+        "type": "SymbolStats"
+      },
+      "growth": {
+        "path": "",
+        "type": "SymbolGrowth"
+      }
+    },
+    "Symbols": {
+      "items": {
+        "path": "symbol",
+        "type": "list:Symbol"
+      }
+    },
+    "Basic": {
+      "name": {
+        "path": "character_name",
+        "type": "text"
+      },
+      "world": {
+        "path": "world_name",
+        "type": "text"
+      },
+      "gender": {
+        "path": "character_gender",
+        "type": "text"
+      },
+      "job": {
+        "path": "character_class",
+        "type": "text"
+      },
+      "level": {
+        "path": "character_level",
+        "type": "integer"
+      },
+      "exp": {
+        "path": "character_exp",
+        "type": "number"
+      },
+      "exp_rate": {
+        "path": "character_exp_rate",
+        "type": "number"
+      },
+      "guild": {
+        "path": "character_guild_name",
+        "type": "text"
+      },
+      "image": {
+        "path": "character_image",
+        "type": "text"
+      },
+      "created_at": {
+        "path": "character_date_create",
+        "type": "text"
+      },
+      "access_flag": {
+        "path": "access_flag",
+        "type": "text"
+      },
+      "liberation_quest_clear": {
+        "path": "liberation_quest_clear",
+        "type": "text"
+      }
+    },
+    "StatEntry": {
+      "name": {
+        "path": "stat_name",
+        "type": "text"
+      },
+      "value": {
+        "path": "stat_value",
+        "type": "text"
+      }
+    },
+    "ReportedStats": {
+      "entries": {
+        "path": "final_stat",
+        "type": "list:StatEntry"
+      },
+      "remaining_ap": {
+        "path": "remain_ap",
+        "type": "number"
+      }
+    },
+    "Propensity": {
+      "charisma": {
+        "path": "charisma_level",
+        "type": "integer"
+      },
+      "sensibility": {
+        "path": "sensibility_level",
+        "type": "integer"
+      },
+      "insight": {
+        "path": "insight_level",
+        "type": "integer"
+      },
+      "willingness": {
+        "path": "willingness_level",
+        "type": "integer"
+      },
+      "handicraft": {
+        "path": "handicraft_level",
+        "type": "integer"
+      },
+      "charm": {
+        "path": "charm_level",
+        "type": "integer"
+      }
+    },
+    "AbilityLine": {
+      "slot": {
+        "path": "ability_no",
+        "type": "integer"
+      },
+      "grade": {
+        "path": "ability_grade",
+        "type": "text"
+      },
+      "text": {
+        "path": "ability_value",
+        "type": "text"
+      }
+    },
+    "Abilities": {
+      "grade": {
+        "path": "ability_grade|ability_preset_grade",
+        "type": "text"
+      },
+      "lines": {
+        "path": "ability_info",
+        "type": "list:AbilityLine"
+      },
+      "remaining_fame": {
+        "path": "remain_fame",
+        "type": "number"
+      },
+      "current_preset_number": {
+        "path": "preset_no",
+        "type": "integer"
+      }
+    },
+    "HyperStat": {
+      "name": {
+        "path": "stat_type",
+        "type": "text"
+      },
+      "level": {
+        "path": "stat_level",
+        "type": "integer"
+      },
+      "used_points": {
+        "path": "stat_point",
+        "type": "number"
+      },
+      "text": {
+        "path": "stat_increase",
+        "type": "text"
+      }
+    },
+    "HyperStats": {
+      "current_preset_number": {
+        "path": "use_preset_no",
+        "type": "integer"
+      },
+      "available_points": {
+        "path": "use_available_hyper_stat",
+        "type": "number"
+      }
+    },
+    "Skill": {
+      "name": {
+        "path": "skill_name",
+        "type": "text"
+      },
+      "icon": {
+        "path": "skill_icon",
+        "type": "text"
+      },
+      "description": {
+        "path": "skill_description",
+        "type": "text"
+      },
+      "level": {
+        "path": "skill_level",
+        "type": "integer"
+      },
+      "text": {
+        "path": "skill_effect",
+        "type": "text"
+      },
+      "next_level_text": {
+        "path": "skill_effect_next",
+        "type": "text"
+      }
+    },
+    "Skills": {
+      "grade": {
+        "path": "character_skill_grade",
+        "type": "text"
+      },
+      "items": {
+        "path": "character_skill",
+        "type": "list:Skill"
+      }
+    },
+    "LinkSkills": {
+      "items": {
+        "path": "character_link_skill",
+        "type": "list:Skill"
+      },
+      "owned": {
+        "path": "character_owned_link_skill",
+        "type": "Skill"
+      }
+    },
+    "VCore": {
+      "slot": {
+        "path": "slot_id",
+        "type": "text"
+      },
+      "slot_level": {
+        "path": "slot_level",
+        "type": "integer"
+      },
+      "name": {
+        "path": "v_core_name",
+        "type": "text"
+      },
+      "type": {
+        "path": "v_core_type",
+        "type": "text"
+      },
+      "level": {
+        "path": "v_core_level",
+        "type": "integer"
+      },
+      "skill_1": {
+        "path": "v_core_skill_1",
+        "type": "text"
+      },
+      "skill_2": {
+        "path": "v_core_skill_2",
+        "type": "text"
+      },
+      "skill_3": {
+        "path": "v_core_skill_3",
+        "type": "text"
+      }
+    },
+    "VMatrix": {
+      "cores": {
+        "path": "character_v_core_equipment",
+        "type": "list:VCore"
+      },
+      "remaining_slot_points": {
+        "path": "character_v_matrix_remain_slot_upgrade_point",
+        "type": "number"
+      }
+    },
+    "LinkedHexaSkill": {
+      "id": {
+        "path": "hexa_skill_id",
+        "type": "text"
+      }
+    },
+    "HexaCore": {
+      "name": {
+        "path": "hexa_core_name",
+        "type": "text"
+      },
+      "level": {
+        "path": "hexa_core_level",
+        "type": "integer"
+      },
+      "event_level": {
+        "path": "hexa_core_event_level",
+        "type": "integer"
+      },
+      "type": {
+        "path": "hexa_core_type",
+        "type": "text"
+      },
+      "linked_skills": {
+        "path": "linked_skill",
+        "type": "list:LinkedHexaSkill"
+      }
+    },
+    "HexaCores": {
+      "cores": {
+        "path": "character_hexa_core_equipment",
+        "type": "list:HexaCore"
+      }
+    },
+    "HexaStat": {
+      "slot": {
+        "path": "slot_id",
+        "type": "text"
+      },
+      "main_name": {
+        "path": "main_stat_name",
+        "type": "text"
+      },
+      "main_level": {
+        "path": "main_stat_level",
+        "type": "integer"
+      },
+      "additional_name_1": {
+        "path": "sub_stat_name_1",
+        "type": "text"
+      },
+      "additional_level_1": {
+        "path": "sub_stat_level_1",
+        "type": "integer"
+      },
+      "additional_name_2": {
+        "path": "sub_stat_name_2",
+        "type": "text"
+      },
+      "additional_level_2": {
+        "path": "sub_stat_level_2",
+        "type": "integer"
+      },
+      "grade": {
+        "path": "stat_grade",
+        "type": "integer"
+      }
+    },
+    "HexaStats": {
+      "cores": {
+        "path": "character_hexa_stat_core",
+        "type": "list:HexaStat"
+      },
+      "cores_2": {
+        "path": "character_hexa_stat_core_2",
+        "type": "list:HexaStat"
+      },
+      "cores_3": {
+        "path": "character_hexa_stat_core_3",
+        "type": "list:HexaStat"
+      },
+      "preset_cores": {
+        "path": "preset_hexa_stat_core",
+        "type": "list:HexaStat"
+      },
+      "preset_cores_2": {
+        "path": "preset_hexa_stat_core_2",
+        "type": "list:HexaStat"
+      },
+      "preset_cores_3": {
+        "path": "preset_hexa_stat_core_3",
+        "type": "list:HexaStat"
+      }
+    },
+    "OtherStatGroup": {
+      "name": {
+        "path": "other_stat_type",
+        "type": "text"
+      },
+      "entries": {
+        "path": "stat_info",
+        "type": "list:StatEntry"
+      }
+    },
+    "OtherStats": {
+      "groups": {
+        "path": "other_stat",
+        "type": "list:OtherStatGroup"
+      }
+    },
+    "SetTier": {
+      "required_count": {
+        "path": "set_count",
+        "type": "integer"
+      },
+      "text": {
+        "path": "set_option",
+        "type": "text"
+      }
+    },
+    "SetEffect": {
+      "name": {
+        "path": "set_name",
+        "type": "text"
+      },
+      "equipped_count": {
+        "path": "total_set_count",
+        "type": "integer"
+      },
+      "active_tiers": {
+        "path": "set_effect_info",
+        "type": "list:SetTier"
+      },
+      "all_tiers": {
+        "path": "set_option_full",
+        "type": "list:SetTier"
+      }
+    },
+    "SetEffects": {
+      "items": {
+        "path": "set_effect",
+        "type": "list:SetEffect"
+      }
+    },
+    "UnionBasic": {
+      "level": {
+        "path": "union_level",
+        "type": "integer"
+      },
+      "grade": {
+        "path": "union_grade",
+        "type": "text"
+      },
+      "artifact_level": {
+        "path": "union_artifact_level",
+        "type": "integer"
+      },
+      "artifact_exp": {
+        "path": "union_artifact_exp",
+        "type": "number"
+      },
+      "artifact_points": {
+        "path": "union_artifact_point",
+        "type": "number"
+      }
+    },
+    "Point": {
+      "x": {
+        "path": "x",
+        "type": "integer"
+      },
+      "y": {
+        "path": "y",
+        "type": "integer"
+      }
+    },
+    "UnionBlock": {
+      "type": {
+        "path": "block_type",
+        "type": "text"
+      },
+      "job": {
+        "path": "block_class",
+        "type": "text"
+      },
+      "level": {
+        "path": "block_level",
+        "type": "integer"
+      },
+      "control_point": {
+        "path": "block_control_point",
+        "type": "Point"
+      },
+      "positions": {
+        "path": "block_position",
+        "type": "list:Point"
+      }
+    },
+    "UnionRegion": {
+      "id": {
+        "path": "stat_field_id",
+        "type": "text"
+      },
+      "text": {
+        "path": "stat_field_effect",
+        "type": "text"
+      }
+    },
+    "UnionState": {
+      "lines": {
+        "path": "union_state_stat",
+        "type": "list:option"
+      }
+    },
+    "UnionRaider": {
+      "member_effects": {
+        "path": "union_raider_stat",
+        "type": "list:option"
+      },
+      "state_effects": {
+        "path": "union_state_stat",
+        "type": "list:option"
+      },
+      "occupied_effects": {
+        "path": "union_occupied_stat",
+        "type": "list:option"
+      },
+      "inner_regions": {
+        "path": "union_inner_stat",
+        "type": "list:UnionRegion"
+      },
+      "blocks": {
+        "path": "union_block",
+        "type": "list:UnionBlock"
+      },
+      "max_points": {
+        "path": "union_max_point",
+        "type": "number"
+      },
+      "current_preset_number": {
+        "path": "use_preset_no",
+        "type": "integer"
+      },
+      "state_presets": {
+        "path": "union_state_stat_preset",
+        "type": "list:UnionState"
+      }
+    },
+    "ArtifactEffect": {
+      "name": {
+        "path": "name",
+        "type": "text"
+      },
+      "level": {
+        "path": "level",
+        "type": "integer"
+      }
+    },
+    "ArtifactCrystal": {
+      "name": {
+        "path": "name",
+        "type": "text"
+      },
+      "level": {
+        "path": "level",
+        "type": "integer"
+      },
+      "validity_flag": {
+        "path": "validity_flag",
+        "type": "text"
+      },
+      "expires_at": {
+        "path": "date_expire",
+        "type": "text"
+      },
+      "option_1": {
+        "path": "crystal_option_name_1",
+        "type": "text"
+      },
+      "option_2": {
+        "path": "crystal_option_name_2",
+        "type": "text"
+      },
+      "option_3": {
+        "path": "crystal_option_name_3",
+        "type": "text"
+      }
+    },
+    "UnionArtifact": {
+      "effects": {
+        "path": "union_artifact_effect",
+        "type": "list:ArtifactEffect"
+      },
+      "crystals": {
+        "path": "union_artifact_crystal",
+        "type": "list:ArtifactCrystal"
+      },
+      "remaining_ap": {
+        "path": "union_artifact_remain_ap",
+        "type": "number"
+      }
+    },
+    "Badge": {
+      "text": {
+        "path": "stat",
+        "type": "text"
+      }
+    },
+    "Champion": {
+      "name": {
+        "path": "champion_name",
+        "type": "text"
+      },
+      "slot": {
+        "path": "champion_slot",
+        "type": "integer"
+      },
+      "grade": {
+        "path": "champion_grade",
+        "type": "text"
+      },
+      "job": {
+        "path": "champion_class",
+        "type": "text"
+      },
+      "badges": {
+        "path": "champion_badge_info",
+        "type": "list:Badge"
+      }
+    },
+    "UnionChampion": {
+      "members": {
+        "path": "union_champion",
+        "type": "list:Champion"
+      },
+      "badge_effects": {
+        "path": "champion_badge_total_info",
+        "type": "list:Badge"
+      }
+    },
+    "RingExchange": {
+      "name": {
+        "path": "special_ring_exchange_name",
+        "type": "text"
+      },
+      "icon": {
+        "path": "special_ring_exchange_icon",
+        "type": "text"
+      },
+      "description": {
+        "path": "special_ring_exchange_description",
+        "type": "text"
+      },
+      "level": {
+        "path": "special_ring_exchange_level",
+        "type": "integer"
+      }
+    },
+    "RingReserve": {
+      "name": {
+        "path": "special_ring_reserve_name",
+        "type": "text"
+      },
+      "icon": {
+        "path": "special_ring_reserve_icon",
+        "type": "text"
+      },
+      "description": {
+        "path": "special_ring_reserve_description",
+        "type": "text"
+      },
+      "level": {
+        "path": "special_ring_reserve_level",
+        "type": "integer"
+      }
+    },
+    "NamedOption": {
+      "name": {
+        "path": "option_type",
+        "type": "text"
+      },
+      "value": {
+        "path": "option_value",
+        "type": "text"
+      }
+    },
+    "Prism": {
+      "color_range": {
+        "path": "color_range",
+        "type": "text"
+      },
+      "hue": {
+        "path": "hue",
+        "type": "integer"
+      },
+      "saturation": {
+        "path": "saturation",
+        "type": "integer"
+      },
+      "value": {
+        "path": "value",
+        "type": "integer"
+      }
+    },
+    "CashItem": {
+      "name": {
+        "path": "cash_item_name",
+        "type": "text"
+      },
+      "slot": {
+        "path": "cash_item_equipment_slot",
+        "type": "text"
+      },
+      "part": {
+        "path": "cash_item_equipment_part",
+        "type": "text"
+      },
+      "icon": {
+        "path": "cash_item_icon",
+        "type": "text"
+      },
+      "description": {
+        "path": "cash_item_description",
+        "type": "text"
+      },
+      "options": {
+        "path": "cash_item_option",
+        "type": "list:NamedOption"
+      },
+      "label": {
+        "path": "cash_item_label",
+        "type": "text"
+      },
+      "prism": {
+        "path": "cash_item_coloring_prism",
+        "type": "Prism"
+      },
+      "expires_at": {
+        "path": "date_expire",
+        "type": "text"
+      },
+      "option_expires_at": {
+        "path": "date_option_expire",
+        "type": "text"
+      },
+      "gender": {
+        "path": "item_gender|android_item_gender",
+        "type": "text"
+      }
+    },
+    "Cash": {
+      "items": {
+        "path": "cash_item_equipment_base",
+        "type": "list:CashItem"
+      },
+      "additional_items": {
+        "path": "additional_cash_item_equipment_base",
+        "type": "list:CashItem"
+      },
+      "shared_master_label": {
+        "path": "world_share_master_label_base",
+        "type": "list:CashItem"
+      },
+      "current_preset_number": {
+        "path": "preset_no",
+        "type": "integer"
+      },
+      "look_mode": {
+        "path": "character_look_mode",
+        "type": "text"
+      },
+      "shared_master_label_flag": {
+        "path": "world_share_master_label_activate_flag",
+        "type": "text"
+      }
+    },
+    "Hair": {
+      "name": {
+        "path": "hair_name",
+        "type": "text"
+      },
+      "base_color": {
+        "path": "base_color",
+        "type": "text"
+      },
+      "mix_color": {
+        "path": "mix_color",
+        "type": "text"
+      },
+      "mix_rate": {
+        "path": "mix_rate",
+        "type": "number"
+      },
+      "freestyle_flag": {
+        "path": "freestyle_flag",
+        "type": "text"
+      }
+    },
+    "Face": {
+      "name": {
+        "path": "face_name",
+        "type": "text"
+      },
+      "base_color": {
+        "path": "base_color",
+        "type": "text"
+      },
+      "mix_color": {
+        "path": "mix_color",
+        "type": "text"
+      },
+      "mix_rate": {
+        "path": "mix_rate",
+        "type": "number"
+      },
+      "freestyle_flag": {
+        "path": "freestyle_flag",
+        "type": "text"
+      }
+    },
+    "Skin": {
+      "name": {
+        "path": "skin_name",
+        "type": "text"
+      },
+      "color_style": {
+        "path": "color_style",
+        "type": "text"
+      },
+      "hue": {
+        "path": "hue",
+        "type": "integer"
+      },
+      "saturation": {
+        "path": "saturation",
+        "type": "integer"
+      },
+      "brightness": {
+        "path": "brightness",
+        "type": "integer"
+      }
+    },
+    "Android": {
+      "name": {
+        "path": "android_name",
+        "type": "text"
+      },
+      "nickname": {
+        "path": "android_nickname",
+        "type": "text"
+      },
+      "icon": {
+        "path": "android_icon",
+        "type": "text"
+      },
+      "description": {
+        "path": "android_description",
+        "type": "text"
+      },
+      "gender": {
+        "path": "android_gender",
+        "type": "text"
+      },
+      "grade": {
+        "path": "android_grade",
+        "type": "text"
+      },
+      "hair": {
+        "path": "android_hair",
+        "type": "Hair"
+      },
+      "face": {
+        "path": "android_face",
+        "type": "Face"
+      },
+      "skin": {
+        "path": "android_skin",
+        "type": "Skin"
+      },
+      "cash_items": {
+        "path": "android_cash_item_equipment",
+        "type": "list:CashItem"
+      },
+      "ear_clip_flag": {
+        "path": "android_ear_sensor_clip_flag",
+        "type": "text"
+      },
+      "non_humanoid_flag": {
+        "path": "android_non_humanoid_flag",
+        "type": "text"
+      },
+      "shop_usable_flag": {
+        "path": "android_shop_usable_flag",
+        "type": "text"
+      },
+      "current_preset_number": {
+        "path": "preset_no",
+        "type": "integer"
+      }
+    },
+    "PetEquipment": {
+      "name": {
+        "path": "item_name",
+        "type": "text"
+      },
+      "icon": {
+        "path": "item_icon",
+        "type": "text"
+      },
+      "description": {
+        "path": "item_description",
+        "type": "text"
+      },
+      "options": {
+        "path": "item_option",
+        "type": "list:NamedOption"
+      },
+      "upgrade_count": {
+        "path": "scroll_upgrade",
+        "type": "integer"
+      },
+      "remaining_count": {
+        "path": "scroll_upgradable",
+        "type": "integer"
+      },
+      "shape_name": {
+        "path": "item_shape",
+        "type": "text"
+      },
+      "shape_icon": {
+        "path": "item_shape_icon",
+        "type": "text"
+      },
+      "expires_at": {
+        "path": "item_date_expire",
+        "type": "text"
+      },
+      "slot": {
+        "path": "slot_no",
+        "type": "integer"
+      }
+    },
+    "PetAutoSkills": {
+      "skill_1": {
+        "path": "skill_1",
+        "type": "text"
+      },
+      "skill_1_icon": {
+        "path": "skill_1_icon",
+        "type": "text"
+      },
+      "skill_2": {
+        "path": "skill_2",
+        "type": "text"
+      },
+      "skill_2_icon": {
+        "path": "skill_2_icon",
+        "type": "text"
+      }
+    },
+    "Pet": {
+      "name": {
+        "path": "name",
+        "type": "text"
+      },
+      "nickname": {
+        "path": "nickname",
+        "type": "text"
+      },
+      "icon": {
+        "path": "icon",
+        "type": "text"
+      },
+      "description": {
+        "path": "description",
+        "type": "text"
+      },
+      "type": {
+        "path": "pet_type",
+        "type": "text"
+      },
+      "equipment": {
+        "path": "equipment",
+        "type": "PetEquipment"
+      },
+      "auto_skills": {
+        "path": "auto_skill",
+        "type": "PetAutoSkills"
+      },
+      "skills": {
+        "path": "skill",
+        "type": "list:text"
+      },
+      "expires_at": {
+        "path": "date_expire",
+        "type": "text"
+      },
+      "appearance": {
+        "path": "appearance",
+        "type": "text"
+      },
+      "appearance_icon": {
+        "path": "appearance_icon",
+        "type": "text"
+      },
+      "equipment_preset_number": {
+        "path": "equipment_preset_no",
+        "type": "integer"
+      }
+    },
+    "Pets": {
+      "activate_flag": {
+        "path": "pet_activate_flag",
+        "type": "text"
+      },
+      "shared_equipment": {
+        "path": "world_share_pet_equipment_preset",
+        "type": "list:PetEquipment"
+      },
+      "petite_luna_skills": {
+        "path": "petite_luna_pet_skill",
+        "type": "list:Skill"
+      }
+    }
+  },
+  "sources": {
+    "BASIC": [
+      "basic",
+      "Basic"
+    ],
+    "REPORTED_STATS": [
+      "stats",
+      "ReportedStats"
+    ],
+    "EQUIPMENT": [
+      "equipment",
+      "Equipment"
+    ],
+    "SYMBOLS": [
+      "symbols",
+      "Symbols"
+    ],
+    "HYPER_STATS": [
+      "hyper_stats",
+      "HyperStats"
+    ],
+    "PROPENSITY": [
+      "propensity",
+      "Propensity"
+    ],
+    "ABILITIES": [
+      "abilities",
+      "Abilities"
+    ],
+    "CASH": [
+      "cash",
+      "Cash"
+    ],
+    "SET_EFFECTS": [
+      "set_effects",
+      "SetEffects"
+    ],
+    "ANDROID": [
+      "android",
+      "Android"
+    ],
+    "PETS": [
+      "pets",
+      "Pets"
+    ],
+    "LINK_SKILLS": [
+      "link_skills",
+      "LinkSkills"
+    ],
+    "V_MATRIX": [
+      "v_matrix",
+      "VMatrix"
+    ],
+    "OTHER_STATS": [
+      "other_stats",
+      "OtherStats"
+    ],
+    "HEXA_CORES": [
+      "hexa_cores",
+      "HexaCores"
+    ],
+    "HEXA_STATS": [
+      "hexa_stats",
+      "HexaStats"
+    ],
+    "RING_EXCHANGE": [
+      "ring_exchange",
+      "RingExchange"
+    ],
+    "RING_RESERVE": [
+      "ring_reserve",
+      "RingReserve"
+    ],
+    "UNION_BASIC": [
+      "union_basic",
+      "UnionBasic"
+    ],
+    "UNION_RAIDER": [
+      "union_raider",
+      "UnionRaider"
+    ],
+    "UNION_ARTIFACT": [
+      "union_artifact",
+      "UnionArtifact"
+    ],
+    "UNION_CHAMPION": [
+      "union_champion",
+      "UnionChampion"
+    ],
+    "SKILL_0": [
+      "skills_zero",
+      "Skills"
+    ],
+    "SKILL_HYPER_PASSIVE": [
+      "skills_hyper_passive",
+      "Skills"
+    ],
+    "SKILL_HYPER_ACTIVE": [
+      "skills_hyper_active",
+      "Skills"
+    ],
+    "SKILL_5": [
+      "skills_fifth",
+      "Skills"
+    ],
+    "SKILL_6": [
+      "skills_sixth",
+      "Skills"
+    ]
+  },
+  "presets": {
+    "Equipment": [
+      "item_equipment_preset_",
+      "Item",
+      "list"
+    ],
+    "Abilities": [
+      "ability_preset_",
+      "Abilities",
+      "object"
+    ],
+    "HyperStats": [
+      "hyper_stat_preset_",
+      "HyperStat",
+      "list"
+    ],
+    "LinkSkills": [
+      "character_link_skill_preset_",
+      "Skill",
+      "list"
+    ],
+    "UnionRaider": [
+      "union_raider_preset_",
+      "UnionRaider",
+      "object"
+    ],
+    "Cash": [
+      "cash_item_equipment_preset_",
+      "CashItem",
+      "list"
+    ],
+    "Android": [
+      "android_preset_",
+      "Android",
+      "object"
+    ],
+    "VMatrix": [
+      "character_v_core_equipment_preset_",
+      "VCore",
+      "list"
+    ]
+  },
+  "stats": [
+    {
+      "name": "str",
+      "key": "STR",
+      "label": "STR",
+      "unit": "FLAT"
+    },
+    {
+      "name": "dex",
+      "key": "DEX",
+      "label": "DEX",
+      "unit": "FLAT"
+    },
+    {
+      "name": "int",
+      "key": "INT",
+      "label": "INT",
+      "unit": "FLAT"
+    },
+    {
+      "name": "luk",
+      "key": "LUK",
+      "label": "LUK",
+      "unit": "FLAT"
+    },
+    {
+      "name": "max_hp",
+      "key": "MAX_HP",
+      "label": "최대 HP",
+      "unit": "FLAT"
+    },
+    {
+      "name": "max_mp",
+      "key": "MAX_MP",
+      "label": "최대 MP",
+      "unit": "FLAT"
+    },
+    {
+      "name": "attack_power",
+      "key": "ATTACK_POWER",
+      "label": "공격력",
+      "unit": "FLAT"
+    },
+    {
+      "name": "magic_power",
+      "key": "MAGIC_POWER",
+      "label": "마력",
+      "unit": "FLAT"
+    },
+    {
+      "name": "defense",
+      "key": "DEFENSE",
+      "label": "방어력",
+      "unit": "FLAT"
+    },
+    {
+      "name": "speed",
+      "key": "SPEED",
+      "label": "이동속도",
+      "unit": "FLAT"
+    },
+    {
+      "name": "jump",
+      "key": "JUMP",
+      "label": "점프력",
+      "unit": "FLAT"
+    },
+    {
+      "name": "all_stat_percent",
+      "key": "ALL_STAT",
+      "label": "올스탯",
+      "unit": "PERCENT"
+    },
+    {
+      "name": "max_hp_percent",
+      "key": "MAX_HP_PERCENT",
+      "label": "최대 HP",
+      "unit": "PERCENT"
+    },
+    {
+      "name": "max_mp_percent",
+      "key": "MAX_MP_PERCENT",
+      "label": "최대 MP",
+      "unit": "PERCENT"
+    },
+    {
+      "name": "damage_percent",
+      "key": "DAMAGE",
+      "label": "데미지",
+      "unit": "PERCENT"
+    },
+    {
+      "name": "boss_damage_percent",
+      "key": "BOSS_DAMAGE",
+      "label": "보스 몬스터 데미지",
+      "unit": "PERCENT"
+    },
+    {
+      "name": "ignore_defense_percent",
+      "key": "IGNORE_DEFENSE",
+      "label": "몬스터 방어율 무시",
+      "unit": "PERCENT"
+    },
+    {
+      "name": "drop_rate_percent",
+      "key": "DROP_RATE",
+      "label": "아이템 드롭률",
+      "unit": "PERCENT"
+    },
+    {
+      "name": "meso_rate_percent",
+      "key": "MESO_RATE",
+      "label": "메소 획득량",
+      "unit": "PERCENT"
+    },
+    {
+      "name": "exp_rate_percent",
+      "key": "EXP_RATE",
+      "label": "경험치 획득량",
+      "unit": "PERCENT"
+    }
+  ],
+  "extra_presets": {
+    "Equipment": {
+      "title_presets": [
+        "title_preset",
+        "Title",
+        "object"
+      ]
+    },
+    "Cash": {
+      "additional_presets": [
+        "additional_cash_item_equipment_preset_",
+        "CashItem",
+        "list"
+      ]
+    },
+    "LinkSkills": {
+      "owned_presets": [
+        "character_owned_link_skill_preset_",
+        "Skill",
+        "object"
+      ]
+    }
+  }
+}

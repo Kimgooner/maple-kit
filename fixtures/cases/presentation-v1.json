@@ -1,0 +1,907 @@
+[
+  {
+    "id": "equipment-tooltip",
+    "source": "EQUIPMENT",
+    "raw": {
+      "preset_no": 2,
+      "item_equipment": [
+        {
+          "item_name": "합성 튜너",
+          "item_equipment_slot": "무기",
+          "item_equipment_part": "튜너",
+          "item_icon": "https://example.invalid/icon.png",
+          "starforce": "25",
+          "scroll_upgrade": "9",
+          "scroll_upgradeable_count": "0",
+          "scroll_resilience_count": "0",
+          "item_base_option": {
+            "base_equipment_level": 250,
+            "str": "190",
+            "attack_power": "373",
+            "boss_damage": "30"
+          },
+          "item_total_option": {
+            "str": "385",
+            "attack_power": "1122",
+            "boss_damage": "40",
+            "dex": "0",
+            "speed": "-2"
+          },
+          "item_starforce_option": {
+            "str": "159",
+            "attack_power": "400"
+          },
+          "item_add_option": {
+            "str": "36",
+            "attack_power": "268",
+            "boss_damage": "10"
+          },
+          "item_etc_option": {
+            "attack_power": "81"
+          },
+          "potential_option_grade": "레전드리",
+          "potential_option_flag": "1",
+          "potential_option_1": "공격력 +13%",
+          "potential_option_2": "알 수 없는 합성 효과 🧪",
+          "additional_potential_option_grade": "에픽",
+          "additional_potential_option_1": "공격력 +6%",
+          "soul_name": "합성 소울",
+          "soul_option": "공격력 +3%",
+          "soul_pad": "20",
+          "soul_mad": "0",
+          "soul_potential_grade": "레전드리",
+          "soul_potential_amplified_grade": 4,
+          "soul_potential_option_1": "공격력 +8%"
+        }
+      ],
+      "item_equipment_preset_2": [
+        {
+          "item_name": "저장 프리셋 장비",
+          "item_equipment_slot": "무기",
+          "item_equipment_part": "튜너",
+          "item_icon": "https://example.invalid/icon.png",
+          "starforce": "25",
+          "scroll_upgrade": "9",
+          "scroll_upgradeable_count": "0",
+          "scroll_resilience_count": "0",
+          "item_base_option": {
+            "base_equipment_level": 250,
+            "str": "190",
+            "attack_power": "373",
+            "boss_damage": "30"
+          },
+          "item_total_option": {
+            "str": "385",
+            "attack_power": "1122",
+            "boss_damage": "40",
+            "dex": "0",
+            "speed": "-2"
+          },
+          "item_starforce_option": {
+            "str": "159",
+            "attack_power": "400"
+          },
+          "item_add_option": {
+            "str": "36",
+            "attack_power": "268",
+            "boss_damage": "10"
+          },
+          "item_etc_option": {
+            "attack_power": "81"
+          },
+          "potential_option_grade": "레전드리",
+          "potential_option_flag": "1",
+          "potential_option_1": "공격력 +13%",
+          "potential_option_2": "알 수 없는 합성 효과 🧪",
+          "additional_potential_option_grade": "에픽",
+          "additional_potential_option_1": "공격력 +6%",
+          "soul_name": "합성 소울",
+          "soul_option": "공격력 +3%",
+          "soul_pad": "20",
+          "soul_mad": "0",
+          "soul_potential_grade": "레전드리",
+          "soul_potential_amplified_grade": 4,
+          "soul_potential_option_1": "공격력 +8%"
+        }
+      ],
+      "title_preset1": {
+        "title_name": "합성 칭호"
+      }
+    },
+    "expected": {
+      "/current_preset_number": 2,
+      "/items/0/display_name": "합성 튜너 (+9)",
+      "/items/0/icon_url": "https://example.invalid/icon.png",
+      "/items/0/stat_rows/0/value": "385",
+      "/items/0/stat_rows/0/breakdown_text": "190 +159 +36",
+      "/items/0/stat_rows/1/value_text": "+1122",
+      "/items/0/stat_rows/1/breakdown_text": "373 +400 +81 +268",
+      "/items/0/stat_rows/2/value_text": "-2",
+      "/items/0/stat_rows/3/value_text": "+40%",
+      "/items/0/potential/grade": "LEGENDARY",
+      "/items/0/potential/lines/1/parse_status": "UNKNOWN",
+      "/items/0/soul/attack_power": "20",
+      "/items/0/soul/potential/amplification_text": "증폭 4단계",
+      "/items/0/enhancement/text": "주문서 강화 9회 (잔여 0회, 복구 가능 0회)",
+      "/presets/2/items/0/name": "저장 프리셋 장비",
+      "/title_presets/1/name": "합성 칭호"
+    }
+  },
+  {
+    "id": "symbol-growth",
+    "source": "SYMBOLS",
+    "raw": {
+      "symbol": [
+        {
+          "symbol_name": "합성 심볼",
+          "symbol_icon": "https://example.invalid/symbol.png",
+          "symbol_level": 7,
+          "symbol_force": "80",
+          "symbol_str": "700",
+          "symbol_dex": "0",
+          "symbol_growth_count": 123,
+          "symbol_require_growth_count": 456
+        }
+      ]
+    },
+    "expected": {
+      "/items/0/level_text": "Lv. 7",
+      "/items/0/force_text": "포스 80",
+      "/items/0/growth/current": "123",
+      "/items/0/growth/required": "456",
+      "/items/0/stat_rows/0/text": "STR +700"
+    }
+  },
+  {
+    "id": "union-basic",
+    "source": "UNION_BASIC",
+    "raw": {
+      "union_level": 9000,
+      "union_grade": "그랜드 마스터 유니온",
+      "union_artifact_level": 40,
+      "union_artifact_exp": 9007199254740993
+    },
+    "expected": {
+      "/level": 9000,
+      "/artifact_exp": "9007199254740993"
+    }
+  },
+  {
+    "id": "union-grid",
+    "source": "UNION_RAIDER",
+    "raw": {
+      "use_preset_no": 2,
+      "union_raider_stat": [
+        "STR +40"
+      ],
+      "union_occupied_stat": [
+        "보스 몬스터 공격 시 데미지 +40%"
+      ],
+      "union_state_stat": [],
+      "union_block": [
+        {
+          "block_type": "전사",
+          "block_class": "히어로",
+          "block_level": "250",
+          "block_control_point": {
+            "x": -1,
+            "y": 2
+          },
+          "block_position": [
+            {
+              "x": -2,
+              "y": 3
+            }
+          ]
+        }
+      ],
+      "union_inner_stat": [
+        {
+          "stat_field_id": "0",
+          "stat_field_effect": "STR +5"
+        }
+      ],
+      "union_raider_preset_2": {
+        "union_block": []
+      }
+    },
+    "expected": {
+      "/blocks/0/job": "히어로",
+      "/blocks/0/level": 250,
+      "/blocks/0/control_point/x": -1,
+      "/member_effects/0/text": "STR +40",
+      "/member_effects/0/parse_status": "KNOWN",
+      "/state_effects": [],
+      "/presets/2/blocks": []
+    }
+  },
+  {
+    "id": "union-artifact",
+    "source": "UNION_ARTIFACT",
+    "raw": {
+      "union_artifact_effect": [
+        {
+          "name": "합성 효과",
+          "level": 10
+        }
+      ],
+      "union_artifact_crystal": [
+        {
+          "name": "합성 크리스탈",
+          "level": 5,
+          "validity_flag": "1",
+          "crystal_option_name_1": "합성 옵션",
+          "date_expire": "expired-but-preserved"
+        }
+      ],
+      "union_artifact_remain_ap": 0
+    },
+    "expected": {
+      "/effects/0/level": 10,
+      "/crystals/0/option_1": "합성 옵션",
+      "/crystals/0/expires_at": "expired-but-preserved",
+      "/remaining_ap": "0"
+    }
+  },
+  {
+    "id": "union-champion",
+    "source": "UNION_CHAMPION",
+    "raw": {
+      "union_champion": [
+        {
+          "champion_name": "합성 캐릭터",
+          "champion_slot": 1,
+          "champion_grade": "SSS",
+          "champion_class": "아델",
+          "champion_badge_info": [
+            {
+              "stat": "공격력 +5"
+            }
+          ]
+        }
+      ],
+      "champion_badge_total_info": [
+        {
+          "stat": "마력 +5"
+        }
+      ]
+    },
+    "expected": {
+      "/members/0/name": "합성 캐릭터",
+      "/members/0/badges/0/text": "공격력 +5",
+      "/badge_effects/0/parse_status": "KNOWN"
+    }
+  },
+  {
+    "id": "basic-precision",
+    "source": "BASIC",
+    "raw": {
+      "character_name": "합성 캐릭터",
+      "character_class": "아델",
+      "character_level": 280,
+      "world_name": "합성 월드",
+      "character_exp": 900719925474099312345,
+      "character_exp_rate": "12.345000"
+    },
+    "expected": {
+      "/name": "합성 캐릭터",
+      "/level_text": "Lv. 280",
+      "/exp": "900719925474099312345",
+      "/exp_rate": "12.345"
+    }
+  },
+  {
+    "id": "reported-stats",
+    "source": "REPORTED_STATS",
+    "raw": {
+      "final_stat": [
+        {
+          "stat_name": "보스 몬스터 데미지",
+          "stat_value": "300.50%"
+        }
+      ],
+      "remain_ap": 0
+    },
+    "expected": {
+      "/entries/0/value": "300.50%",
+      "/remaining_ap": "0"
+    }
+  },
+  {
+    "id": "propensity",
+    "source": "PROPENSITY",
+    "raw": {
+      "charisma_level": 100,
+      "charm_level": 0
+    },
+    "expected": {
+      "/charisma": 100,
+      "/charm": 0
+    }
+  },
+  {
+    "id": "abilities",
+    "source": "ABILITIES",
+    "raw": {
+      "ability_grade": "레전드리",
+      "ability_info": [
+        {
+          "ability_no": "1",
+          "ability_grade": "레전드리",
+          "ability_value": "공격력 +30"
+        }
+      ],
+      "ability_preset_1": {
+        "ability_preset_grade": "에픽",
+        "ability_info": []
+      }
+    },
+    "expected": {
+      "/lines/0/slot": 1,
+      "/lines/0/parse_status": "KNOWN",
+      "/presets/1/grade": "에픽"
+    }
+  },
+  {
+    "id": "hyper-presets",
+    "source": "HYPER_STATS",
+    "raw": {
+      "use_preset_no": "2",
+      "hyper_stat_preset_2": [
+        {
+          "stat_type": "데미지",
+          "stat_level": 10,
+          "stat_point": 150,
+          "stat_increase": "데미지 +30%"
+        }
+      ],
+      "hyper_stat_preset_2_remain_point": 5
+    },
+    "expected": {
+      "/current_preset_number": 2,
+      "/presets/2/items/0/level": 10,
+      "/presets/2/items/0/parse_status": "KNOWN",
+      "/presets/2/remaining_points": "5"
+    }
+  },
+  {
+    "id": "skill_0",
+    "source": "SKILL_0",
+    "raw": {
+      "character_skill_grade": "합성 등급",
+      "character_skill": [
+        {
+          "skill_name": "합성 스킬",
+          "skill_level": 30,
+          "skill_icon": "https://example.invalid/skill.png",
+          "skill_effect": "공격력 +10",
+          "skill_effect_next": "미지의 효과"
+        }
+      ]
+    },
+    "expected": {
+      "/items/0/name": "합성 스킬",
+      "/items/0/text": "공격력 +10",
+      "/items/0/parse_status": "KNOWN"
+    }
+  },
+  {
+    "id": "skill_5",
+    "source": "SKILL_5",
+    "raw": {
+      "character_skill_grade": "합성 등급",
+      "character_skill": [
+        {
+          "skill_name": "합성 스킬",
+          "skill_level": 30,
+          "skill_icon": "https://example.invalid/skill.png",
+          "skill_effect": "공격력 +10",
+          "skill_effect_next": "미지의 효과"
+        }
+      ]
+    },
+    "expected": {
+      "/items/0/name": "합성 스킬",
+      "/items/0/text": "공격력 +10",
+      "/items/0/parse_status": "KNOWN"
+    }
+  },
+  {
+    "id": "skill_6",
+    "source": "SKILL_6",
+    "raw": {
+      "character_skill_grade": "합성 등급",
+      "character_skill": [
+        {
+          "skill_name": "합성 스킬",
+          "skill_level": 30,
+          "skill_icon": "https://example.invalid/skill.png",
+          "skill_effect": "공격력 +10",
+          "skill_effect_next": "미지의 효과"
+        }
+      ]
+    },
+    "expected": {
+      "/items/0/name": "합성 스킬",
+      "/items/0/text": "공격력 +10",
+      "/items/0/parse_status": "KNOWN"
+    }
+  },
+  {
+    "id": "skill_hyper_passive",
+    "source": "SKILL_HYPER_PASSIVE",
+    "raw": {
+      "character_skill_grade": "합성 등급",
+      "character_skill": [
+        {
+          "skill_name": "합성 스킬",
+          "skill_level": 30,
+          "skill_icon": "https://example.invalid/skill.png",
+          "skill_effect": "공격력 +10",
+          "skill_effect_next": "미지의 효과"
+        }
+      ]
+    },
+    "expected": {
+      "/items/0/name": "합성 스킬",
+      "/items/0/text": "공격력 +10",
+      "/items/0/parse_status": "KNOWN"
+    }
+  },
+  {
+    "id": "skill_hyper_active",
+    "source": "SKILL_HYPER_ACTIVE",
+    "raw": {
+      "character_skill_grade": "합성 등급",
+      "character_skill": [
+        {
+          "skill_name": "합성 스킬",
+          "skill_level": 30,
+          "skill_icon": "https://example.invalid/skill.png",
+          "skill_effect": "공격력 +10",
+          "skill_effect_next": "미지의 효과"
+        }
+      ]
+    },
+    "expected": {
+      "/items/0/name": "합성 스킬",
+      "/items/0/text": "공격력 +10",
+      "/items/0/parse_status": "KNOWN"
+    }
+  },
+  {
+    "id": "link-skills",
+    "source": "LINK_SKILLS",
+    "raw": {
+      "character_link_skill": [
+        {
+          "skill_name": "합성 스킬",
+          "skill_level": 30,
+          "skill_icon": "https://example.invalid/skill.png",
+          "skill_effect": "공격력 +10",
+          "skill_effect_next": "미지의 효과"
+        }
+      ],
+      "character_owned_link_skill": {
+        "skill_name": "합성 스킬",
+        "skill_level": 30,
+        "skill_icon": "https://example.invalid/skill.png",
+        "skill_effect": "공격력 +10"
+      },
+      "character_link_skill_preset_1": [],
+      "character_owned_link_skill_preset_2": {
+        "skill_name": "프리셋 링크"
+      }
+    },
+    "expected": {
+      "/owned/level": 30,
+      "/presets/1/items": [],
+      "/owned_presets/2/name": "프리셋 링크"
+    }
+  },
+  {
+    "id": "v-matrix",
+    "source": "V_MATRIX",
+    "raw": {
+      "character_v_core_equipment": [
+        {
+          "slot_id": "0",
+          "slot_level": 5,
+          "v_core_name": "합성 코어",
+          "v_core_level": 25,
+          "v_core_skill_1": "합성 스킬"
+        }
+      ],
+      "character_v_matrix_remain_slot_upgrade_point": 0,
+      "character_v_core_equipment_preset_5": []
+    },
+    "expected": {
+      "/cores/0/name": "합성 코어",
+      "/cores/0/slot": "0",
+      "/cores/0/skill_1": "합성 스킬",
+      "/presets/5/items": []
+    }
+  },
+  {
+    "id": "hexa-cores",
+    "source": "HEXA_CORES",
+    "raw": {
+      "character_hexa_core_equipment": [
+        {
+          "hexa_core_name": "합성 HEXA",
+          "hexa_core_level": 10,
+          "linked_skill": [
+            {
+              "hexa_skill_id": "1000"
+            }
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "/cores/0/linked_skills/0/id": "1000"
+    }
+  },
+  {
+    "id": "hexa-stats",
+    "source": "HEXA_STATS",
+    "raw": {
+      "character_hexa_stat_core": [
+        {
+          "slot_id": "0",
+          "main_stat_name": "공격력",
+          "main_stat_level": 7,
+          "sub_stat_name_1": "STR",
+          "sub_stat_level_1": 5
+        }
+      ],
+      "character_hexa_stat_core_2": [],
+      "preset_hexa_stat_core": [
+        {
+          "slot_id": "0",
+          "main_stat_name": "STR",
+          "main_stat_level": 10
+        }
+      ]
+    },
+    "expected": {
+      "/cores/0/main_level": 7,
+      "/cores/0/main_name": "공격력",
+      "/cores_2": [],
+      "/preset_cores/0/main_name": "STR"
+    }
+  },
+  {
+    "id": "other-stats",
+    "source": "OTHER_STATS",
+    "raw": {
+      "other_stat": [
+        {
+          "other_stat_type": "합성",
+          "stat_info": [
+            {
+              "stat_name": "STR",
+              "stat_value": "10"
+            }
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "/groups/0/entries/0/name": "STR",
+      "/groups/0/entries/0/value": "10"
+    }
+  },
+  {
+    "id": "set-effects",
+    "source": "SET_EFFECTS",
+    "raw": {
+      "set_effect": [
+        {
+          "set_name": "합성 세트",
+          "total_set_count": 3,
+          "set_effect_info": [
+            {
+              "set_count": 3,
+              "set_option": "공격력 +10"
+            }
+          ],
+          "set_option_full": [
+            {
+              "set_count": 5,
+              "set_option": "공격력 +20"
+            }
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "/items/0/equipped_count": 3,
+      "/items/0/active_tiers/0/text": "공격력 +10",
+      "/items/0/all_tiers/0/required_count": 5
+    }
+  },
+  {
+    "id": "ring-exchange",
+    "source": "RING_EXCHANGE",
+    "raw": {
+      "special_ring_exchange_name": "합성 링",
+      "special_ring_exchange_level": 4
+    },
+    "expected": {
+      "/name": "합성 링",
+      "/level": 4
+    }
+  },
+  {
+    "id": "ring-reserve",
+    "source": "RING_RESERVE",
+    "raw": {
+      "special_ring_reserve_name": "합성 링",
+      "special_ring_reserve_level": 4
+    },
+    "expected": {
+      "/name": "합성 링",
+      "/level": 4
+    }
+  },
+  {
+    "id": "cash",
+    "source": "CASH",
+    "raw": {
+      "cash_item_equipment_base": [
+        {
+          "cash_item_name": "합성 캐시",
+          "cash_item_equipment_slot": "모자",
+          "cash_item_option": [
+            {
+              "option_type": "STR",
+              "option_value": "5"
+            }
+          ],
+          "cash_item_coloring_prism": {
+            "hue": 12,
+            "saturation": 20,
+            "value": -5
+          }
+        }
+      ],
+      "cash_item_equipment_preset_1": [],
+      "additional_cash_item_equipment_preset_2": []
+    },
+    "expected": {
+      "/items/0/options/0/text": "STR 5",
+      "/items/0/prism/value": -5,
+      "/presets/1/items": [],
+      "/additional_presets/2/items": []
+    }
+  },
+  {
+    "id": "android",
+    "source": "ANDROID",
+    "raw": {
+      "android_name": "합성 안드로이드",
+      "android_cash_item_equipment": [
+        {
+          "cash_item_name": "합성 캐시",
+          "cash_item_equipment_slot": "모자",
+          "cash_item_option": [
+            {
+              "option_type": "STR",
+              "option_value": "5"
+            }
+          ],
+          "cash_item_coloring_prism": {
+            "hue": 12,
+            "saturation": 20,
+            "value": -5
+          }
+        }
+      ],
+      "android_hair": {
+        "hair_name": "합성 헤어",
+        "mix_rate": "50"
+      },
+      "android_preset_1": {
+        "android_name": "프리셋 안드로이드"
+      }
+    },
+    "expected": {
+      "/hair/name": "합성 헤어",
+      "/hair/mix_rate": "50",
+      "/cash_items/0/name": "합성 캐시",
+      "/presets/1/name": "프리셋 안드로이드"
+    }
+  },
+  {
+    "id": "pets",
+    "source": "PETS",
+    "raw": {
+      "pet_1_name": null,
+      "pet_2_name": "합성 펫",
+      "pet_2_equipment": {
+        "item_name": "펫 장비",
+        "item_option": [
+          {
+            "option_type": "공격력",
+            "option_value": "10"
+          }
+        ]
+      },
+      "pet_2_skill": [
+        "메소 줍기"
+      ],
+      "world_share_pet_3_name": "공유 펫",
+      "petite_luna_pet_skill": [
+        {
+          "skill_name": "합성 스킬",
+          "skill_icon": "https://example.invalid/skill.png",
+          "skill_effect": "공격력 +10"
+        }
+      ]
+    },
+    "expected": {
+      "/items/0/name": "합성 펫",
+      "/items/0/slot": 2,
+      "/items/0/equipment/options/0/text": "공격력 10",
+      "/shared/0/slot": 3
+    }
+  },
+  {
+    "id": "invalid-types",
+    "source": "EQUIPMENT",
+    "raw": {
+      "item_equipment": [
+        {
+          "item_name": "잘못된 장비",
+          "starforce": "oops",
+          "item_total_option": {
+            "str": "broken",
+            "dex": "0"
+          }
+        }
+      ]
+    },
+    "expected": {
+      "/items/0/starforce": null,
+      "/items/0/stat_rows": null,
+      "/items/0/diagnostics": [
+        "INVALID_FIELD:/item_equipment/0/starforce",
+        "INVALID_FIELD:/item_equipment/0/stat_rows"
+      ]
+    }
+  },
+  {
+    "id": "zero-null-missing",
+    "source": "EQUIPMENT",
+    "raw": {
+      "item_equipment": [
+        {
+          "item_name": "영",
+          "starforce": "0",
+          "item_total_option": {
+            "str": "0",
+            "dex": null
+          }
+        }
+      ]
+    },
+    "expected": {
+      "/items/0/stat_rows": [],
+      "/items/0/potential": null,
+      "/items/0/soul": null,
+      "/items/0/badges/0/text": "0성",
+      "/items/0/display_name": "영"
+    }
+  },
+  {
+    "id": "invalid-array",
+    "source": "SYMBOLS",
+    "raw": {
+      "symbol": [
+        null
+      ]
+    },
+    "expected": {
+      "/items": null,
+      "/diagnostics": [
+        "INVALID_FIELD:/symbol"
+      ]
+    }
+  },
+  {
+    "id": "missing-vs-empty",
+    "source": "SYMBOLS",
+    "raw": {},
+    "expected": {
+      "/items": null
+    }
+  },
+  {
+    "id": "empty-symbols",
+    "source": "SYMBOLS",
+    "raw": {
+      "symbol": []
+    },
+    "expected": {
+      "/items": []
+    }
+  },
+  {
+    "id": "null-symbols",
+    "source": "SYMBOLS",
+    "raw": {
+      "symbol": null
+    },
+    "expected": {
+      "/items": null
+    }
+  },
+  {
+    "id": "invalid-preset",
+    "source": "EQUIPMENT",
+    "raw": {
+      "item_equipment": [],
+      "item_equipment_preset_2": {}
+    },
+    "expected": {
+      "/items": [],
+      "/presets/2": null,
+      "/diagnostics": [
+        "INVALID_FIELD:/item_equipment_preset_2"
+      ]
+    }
+  },
+  {
+    "id": "flat-and-percent-hp",
+    "source": "EQUIPMENT",
+    "raw": {
+      "item_equipment": [
+        {
+          "item_name": "합성 HP 장비",
+          "item_total_option": {
+            "max_hp": "255",
+            "max_hp_rate": "6",
+            "max_mp": "10",
+            "max_mp_rate": "3"
+          },
+          "item_base_option": {
+            "max_hp": "0",
+            "max_hp_rate": "6"
+          },
+          "item_add_option": {
+            "max_hp": "255"
+          }
+        }
+      ]
+    },
+    "expected": {
+      "/items/0/stat_rows/0/key": "MAX_HP",
+      "/items/0/stat_rows/2/key": "MAX_HP_PERCENT",
+      "/items/0/stat_rows/2/breakdown_text": "6%",
+      "/items/0/stat_rows/3/key": "MAX_MP_PERCENT"
+    }
+  },
+  {
+    "id": "missing-pet-slots",
+    "source": "PETS",
+    "raw": {},
+    "expected": {
+      "/items": null,
+      "/shared": null
+    }
+  },
+  {
+    "id": "empty-pet-slots",
+    "source": "PETS",
+    "raw": {
+      "pet_1_name": null,
+      "pet_2_name": null,
+      "pet_3_name": null
+    },
+    "expected": {
+      "/items": [],
+      "/shared": null
+    }
+  }
+]

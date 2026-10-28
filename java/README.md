@@ -10,6 +10,18 @@ Java21, package `org.whitedoggy.maplelibrary`, Gradle9.4.1, 내부 Jackson core3
 
 전체 조회·소스별 선택·필드 접근·프리셋·오류 처리는 [공통 사용 안내](../docs/usage.md)를 참고하세요. 실행 가능한 장비/심볼 예제는 [Quickstart.java](examples/Quickstart.java)입니다.
 
+```java
+var sheet = client.getCharacterSelected(request, Set.of(Source.EQUIPMENT)).join();
+var character = sheet.asCharacter();
+var item = character.equipment().weapon();
+if (item != null) {
+    System.out.println(item.stats().attackPower());
+    var tooltip = item.toView();
+}
+```
+
+간편 모델 타입은 `Models.Item`, `Models.Symbol`, `Models.UnionRaider` 등입니다. 모든 전용 모델에서 `detail()`로 기존 EntityView를 읽을 수 있습니다. `MapleClient.character(...)`로 바로 `MapleCharacter`를 받을 수도 있습니다.
+
 ## 라이선스 및 NEXON Open API 이용 안내
 
 이 프로젝트의 자체 작성 코드는 [MIT License](../LICENSE)로 제공합니다. 저작권 및 라이선스 고지를 유지하면 사용·수정·재배포할 수 있습니다.

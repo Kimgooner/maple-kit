@@ -12,7 +12,7 @@ python_version = config['project']['version']
 java_version = re.search(r'^version = "([^"]+)"', (ROOT / 'java/build.gradle.kts').read_text(), re.M)[1]
 license_text = (ROOT / 'LICENSE').read_bytes()
 assert (ROOT / 'python/LICENSE').read_bytes() == license_text, 'License copies differ'
-resources = ['registry.json', 'option-aliases.json', 'option-rules.json', 'schema-overrides.json']
+resources = ['registry.json', 'option-aliases.json', 'option-rules.json', 'schema-overrides.json', 'presentation.json']
 for name in resources:
     python = ROOT / 'python/src/maple_library' / name
     java = ROOT / 'java/src/main/resources/org/whitedoggy/maplelibrary' / name

@@ -8,13 +8,14 @@
 2. [장비와 심볼 조회 예제](#장비와-심볼-조회-예제)
 3. [전체·선택·그룹 조회](#전체선택그룹-조회)
 4. [선택 가능한 소스 27개](#선택-가능한-소스-27개)
-5. [필드와 배열 읽기](#필드와-배열-읽기)
-6. [프리셋 읽기](#프리셋-읽기)
-7. [OCID 재사용과 과거 조회](#ocid-재사용과-과거-조회)
-8. [실패와 진단](#실패와-진단)
-9. [옵션 해석과 비교](#옵션-해석과-비교)
-10. [클라이언트 수명과 호출 제한](#클라이언트-수명과-호출-제한)
-11. [코드 에이전트용 체크리스트](#코드-에이전트용-체크리스트)
+5. [간편 모델과 화면용 데이터](#간편-모델과-화면용-데이터)
+6. [필드와 배열 읽기](#필드와-배열-읽기)
+7. [프리셋 읽기](#프리셋-읽기)
+8. [OCID 재사용과 과거 조회](#ocid-재사용과-과거-조회)
+9. [실패와 진단](#실패와-진단)
+10. [옵션 해석과 비교](#옵션-해석과-비교)
+11. [클라이언트 수명과 호출 제한](#클라이언트-수명과-호출-제한)
+12. [코드 에이전트용 체크리스트](#코드-에이전트용-체크리스트)
 
 ## 설치와 임포트
 
@@ -32,8 +33,7 @@ python -m pip install ./python
 ```
 
 ```python
-from maple_library import MapleClient, CharacterRequest, Source
-from maple_library import DocumentStatus, FieldState, ApiError
+from maple_library import MapleClient, Source
 ```
 
 런타임 의존성 HTTPX는 pip가 함께 설치합니다. 개발 중 수정 내용을 바로 쓰려면 `python -m pip install -e './python[test]'`를 사용합니다.
@@ -74,112 +74,267 @@ JAR 하나만 수동으로 복사하면 Jackson 런타임 의존성이 빠질 �
 
 ## 장비와 심볼 조회 예제
 
-실행 환경에 `MAPLE_OPEN_API_KEY`와 `MAPLE_CHARACTER_NAME`을 설정합니다. 라이브러리는 `.env`를 자동으로 읽지 않습니다. 아래 예제의 `os.environ` / `System.getenv`가 키와 이름을 읽어 전달합니다. 키를 코드에 쓰거나 출력하지 마세요.
-
-### Python 전체 실행 예제
-
-저장소의 [quickstart.py](../python/examples/quickstart.py)와 같습니다. 설치 후 루트에서 `python python/examples/quickstart.py`로 실행합니다.
+실행 환경에 `MAPLE_OPEN_API_KEY`와 `MAPLE_CHARACTER_NAME`을 설정합니다. `.env`를 자동으로 읽지 않으므로 실행 시 환경변수로 주입하세요. 실행 파일은 [Python quickstart](../python/examples/quickstart.py), [Java Quickstart](../java/examples/Quickstart.java)입니다.
 
 ```python
+"""Run with MAPLE_OPEN_API_KEY and MAPLE_CHARACTER_NAME in the environment."""
 import asyncio
 import os
-
-from maple_library import (
-    CharacterRequest, DocumentStatus, FieldState, MapleClient, Source,
-)
+from maple_library import MapleClient, Source
 
 
-def print_summary(sheet):
-    equipment = sheet.document(Source.EQUIPMENT)
-    if equipment.status is DocumentStatus.FETCHED:
-        items = equipment.equipment()
-        if items.state is FieldState.VALUE:
-            for item in items.value:
-                slot = item.text("item_equipment_slot")
-                name = item.text("item_name")
-                if slot.state is FieldState.VALUE and name.state is FieldState.VALUE:
-                    print(slot.value, name.value)
-
-    symbols = sheet.document(Source.SYMBOLS)
-    if symbols.status is DocumentStatus.FETCHED:
-        entries = symbols.symbols()
-        if entries.state is FieldState.VALUE:
-            for symbol in entries.value:
-                name = symbol.text("symbol_name")
-                level = symbol.number("symbol_level")
-                if name.state is FieldState.VALUE and level.state is FieldState.VALUE:
-                    print(name.value, level.value)
+def print_summary(character):
+    for item in character.equipment.items:
+        print(item.slot, item.name)
+    for symbol in character.symbols.items:
+        print(symbol.name, symbol.level)
 
 
 async def main():
-    async with MapleClient(os.environ["MAPLE_OPEN_API_KEY"]) as client:
-        sheet = await client.get_character_selected(
-            CharacterRequest(nickname=os.environ["MAPLE_CHARACTER_NAME"]),
-            {Source.EQUIPMENT, Source.SYMBOLS},
+    async with MapleClient(os.environ['MAPLE_OPEN_API_KEY']) as maple:
+        character = await maple.character(
+            os.environ['MAPLE_CHARACTER_NAME'],
+            sources=[Source.EQUIPMENT, Source.SYMBOLS, Source.UNION],
         )
-        print_summary(sheet)
+        print_summary(character)
+        print(character.union.basic.level)
+        # A web handler can return this dict directly as its JSON response.
+        view = character.to_view()
+        print(view['equipment']['items'])
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     asyncio.run(main())
-
 ```
-
-### Java 전체 실행 예제
-
-소비자 프로젝트의 `src/main/java/Quickstart.java`에 넣고 IDE에서 `Quickstart.main`을 실행합니다. 파일은 [Quickstart.java](../java/examples/Quickstart.java)에도 있습니다. CLI 예제이므로 `.join()`으로 기다리며, 비동기 서버에서는 반환 future를 연결해서 사용합니다.
 
 ```java
 import java.util.Set;
-import org.whitedoggy.maplelibrary.CharacterRequest;
-import org.whitedoggy.maplelibrary.CharacterSheet;
-import org.whitedoggy.maplelibrary.Document;
-import org.whitedoggy.maplelibrary.FieldValue;
+import org.whitedoggy.maplelibrary.MapleCharacter;
 import org.whitedoggy.maplelibrary.MapleClient;
 import org.whitedoggy.maplelibrary.Source;
 
 public class Quickstart {
-    public static void printSummary(CharacterSheet sheet) {
-        var equipment = sheet.document(Source.EQUIPMENT);
-        if (equipment.status() == Document.Status.FETCHED) {
-            var items = equipment.equipment();
-            if (items.state() == FieldValue.State.VALUE) {
-                for (var item : items.value()) {
-                    var slot = item.text("item_equipment_slot");
-                    var name = item.text("item_name");
-                    if (slot.state() == FieldValue.State.VALUE && name.state() == FieldValue.State.VALUE) {
-                        System.out.println(slot.value() + " " + name.value());
-                    }
-                }
-            }
+    public static void printSummary(MapleCharacter character) {
+        for (var item : character.equipment().items()) {
+            System.out.println(item.slot() + " " + item.name());
         }
-        var symbols = sheet.document(Source.SYMBOLS);
-        if (symbols.status() == Document.Status.FETCHED) {
-            var entries = symbols.symbols();
-            if (entries.state() == FieldValue.State.VALUE) {
-                for (var symbol : entries.value()) {
-                    var name = symbol.text("symbol_name");
-                    var level = symbol.number("symbol_level");
-                    if (name.state() == FieldValue.State.VALUE && level.state() == FieldValue.State.VALUE) {
-                        System.out.println(name.value() + " " + level.value());
-                    }
-                }
-            }
+        for (var symbol : character.symbols().items()) {
+            System.out.println(symbol.name() + " " + symbol.level());
         }
     }
 
     public static void main(String[] args) {
-        try (var client = new MapleClient(System.getenv("MAPLE_OPEN_API_KEY"))) {
-            var sheet = client.getCharacterSelected(
-                CharacterRequest.nickname(System.getenv("MAPLE_CHARACTER_NAME")),
-                Set.of(Source.EQUIPMENT, Source.SYMBOLS)
+        try (var maple = new MapleClient(System.getenv("MAPLE_OPEN_API_KEY"))) {
+            var character = maple.character(
+                System.getenv("MAPLE_CHARACTER_NAME"),
+                Set.of(Source.EQUIPMENT, Source.SYMBOLS, Source.UNION)
             ).join();
-            printSummary(sheet);
+            printSummary(character);
+            System.out.println(character.union().basic().level());
+            // Return this Map from a web handler, or use toJson() for a JSON string.
+            var view = character.toView();
+            System.out.println(view.get("equipment"));
         }
     }
 }
-
 ```
+
+## 간편 모델과 화면용 데이터
+
+`maple.character(...)`는 Python `Character`, Java `MapleCharacter`를 반환합니다. 속성을 읽거나 `to_view()`를 호출해도 추가 HTTP 요청은 발생하지 않습니다. 기존 `get_character()` / `getCharacter()`는 그대로 `CharacterSheet`를 반환하며, `sheet.as_character()` / `sheet.asCharacter()`로 같은 간편 모델을 얻습니다.
+
+```python
+character = await maple.character(
+    "캐릭터명", sources=[Source.EQUIPMENT, Source.SYMBOLS, Source.UNION]
+)
+item = character.equipment.weapon
+if item is not None:
+    print(item.name, item.stats.attack_power)       # str, Decimal
+    print(item.stats.to_text())                    # STR +385\n공격력 +1122 ...
+    tooltip = item.to_view()                       # JSON 직렬화 가능한 dict
+    json_text = item.to_json()                     # JSON 문자열
+
+symbol = character.symbols.items[0]
+print(symbol.name, symbol.level, symbol.growth.current)
+print(character.union.basic.level)
+page = character.to_view()                         # 선택한 소스들을 한 번에 화면용으로
+```
+
+```java
+var character = maple.character("캐릭터명",
+    Set.of(Source.EQUIPMENT, Source.SYMBOLS, Source.UNION)).join();
+var item = character.equipment().weapon();
+if (item != null) {
+    System.out.println(item.stats().attackPower()); // BigDecimal
+    System.out.println(item.stats().toText());
+    var tooltip = item.toView();                    // Map<String, Object>
+    String json = item.toJson();
+}
+var symbol = character.symbols().items().getFirst();
+System.out.println(symbol.growth().current());
+System.out.println(character.union().basic().level());
+var page = character.toView();
+```
+
+Java의 `toView()` Map과 Python의 `to_view()` dict는 동일한 snake_case JSON 키를 사용합니다. Java에서는 웹 프레임워크가 Map을 직렬화하게 하거나, 의존성 추가 없이 `toJson()`을 쓸 수 있습니다. Python은 `json.dumps(view, ensure_ascii=False)`도 가능합니다. 모델과 원본은 불변이며, 반환된 화면용 객체를 수정해도 모델은 바뀌지 않습니다.
+
+### 소스별 간편 접근
+
+다음 경로는 Python 기준입니다. Java에서는 `hyper_stats` → `hyperStats()`처럼 camelCase 메서드로 읽습니다. 아래 소스를 선택하지 않으면 해당 속성에 접근할 때 `DOCUMENT_UNAVAILABLE`입니다. `Source.UNION`은 유니온 4개, `Source.SKILLS`는 스킬 5개를 선택합니다.
+
+| 선택 소스 | 간편 접근 | 주요 데이터 |
+| --- | --- | --- |
+| `BASIC` | `character.basic` | `name`, `world`, `job`, `level`, `exp`, `guild`, `image` |
+| `REPORTED_STATS` | `character.stats` | `entries`, `get("STR")`, `remaining_ap`; 항목의 `name`, 원문 `value` |
+| `EQUIPMENT` | `character.equipment` | `items`, `weapon`, `secondary`, `emblem`, `get("반지1")`, `title`, `dragon_items`, `mechanic_items` |
+| `SYMBOLS` | `character.symbols` | `items`, `get("심볼 이름")` |
+| `ABILITIES` | `character.abilities` | `grade`, `lines`, `remaining_fame`, `preset(n)` |
+| `HYPER_STATS` | `character.hyper_stats` | `items`(현재 프리셋), `preset(n)`, `current_preset_number`, `available_points` |
+| `PROPENSITY` | `character.propensity` | `charisma`, `sensibility`, `insight`, `willingness`, `handicraft`, `charm` |
+| `CASH` | `character.cash` | `items`, `additional_items`, `shared_master_label`, `preset(n)`, `additional_preset(n)` |
+| `ANDROID` | `character.android` | `name`, `hair`, `face`, `skin`, `cash_items`, `preset(n)` |
+| `PETS` | `character.pets` | `items`, `shared`, `shared_equipment`, `petite_luna_skills` |
+| `SET_EFFECTS` | `character.set_effects` | `items` → `name`, `equipped_count`, `active_tiers`, `all_tiers` |
+| `SKILL_0` | `character.skills.zero` | `grade`, `items` |
+| `SKILL_HYPER_PASSIVE` | `character.skills.hyper_passive` | `grade`, `items` |
+| `SKILL_HYPER_ACTIVE` | `character.skills.hyper_active` | `grade`, `items` |
+| `SKILL_5` | `character.skills.fifth` | `grade`, `items` |
+| `SKILL_6` | `character.skills.sixth` | `grade`, `items` |
+| `LINK_SKILLS` | `character.link_skills` | `items`, `owned`, `preset(n)`, `owned_preset(n)` |
+| `V_MATRIX` | `character.v_matrix` | `cores`, `remaining_slot_points`, `preset(n)` |
+| `HEXA_CORES` | `character.hexa.cores` | `cores` → `name`, `level`, `type`, `linked_skills` |
+| `HEXA_STATS` | `character.hexa.stats` | `cores`, `cores_2`, `cores_3`, `preset_cores`, `preset_cores_2`, `preset_cores_3` |
+| `OTHER_STATS` | `character.other_stats` | `groups` → `name`, `entries` |
+| `RING_EXCHANGE` | `character.special_rings.exchange` | `name`, `level`, `icon`, `description` |
+| `RING_RESERVE` | `character.special_rings.reserve` | `name`, `level`, `icon`, `description` |
+| `UNION_BASIC` | `character.union.basic` | `level`, `grade`, `artifact_level`, `artifact_exp`, `artifact_points` |
+| `UNION_RAIDER` | `character.union.raider` | `member_effects`, `state_effects`, `occupied_effects`, `blocks`, `inner_regions`, `preset(n)` |
+| `UNION_ARTIFACT` | `character.union.artifact` | `effects`, `crystals`, `remaining_ap` |
+| `UNION_CHAMPION` | `character.union.champion` | `members`, `badge_effects` |
+
+각 소스 모델과 그 안의 장비·심볼·블록·코어·효과 항목에 `to_view()` / `toView()`가 있습니다. 화면에는 간편 이름의 필드, `icon_url`, 레벨이 있는 항목의 `level_text`, 옵션 원문과 `parse_status`가 전달됩니다. 숫자 레벨을 효과량으로 바꾸거나 만료된 항목을 자동 제거하지 않습니다. 상세 속성의 정확한 이름은 타입이 명시된 [Python 모델](../python/src/maple_library/friendly.py)과 [Java Models](../java/src/main/java/org/whitedoggy/maplelibrary/Models.java)에서도 확인할 수 있습니다.
+
+### 장비: 숫자 접근과 툴팁
+
+| 접근 | 의미 |
+| --- | --- |
+| `equipment.items` | API가 반환한 현재 적용 장비 |
+| `equipment.current_preset_number` | 현재 프리셋 번호. 장비 목록이 아님 |
+| `equipment.preset(2).items` | 저장된 2번 프리셋. 현재 적용 장비와 다를 수 있음 |
+| `equipment.title_preset(1)` | 저장된 칭호. 누락 시 현재 칭호로 대체하지 않음 |
+| `item.stats` | `item_total_option`의 장비 자체 합계. 잠재·소울을 추가 합산하지 않음 |
+| `item.options.base` | 기본 옵션 |
+| `item.options.additional` | 추가옵션 |
+| `item.options.starforce` | 스타포스 옵션 |
+| `item.options.scroll` | API `item_etc_option`. 표시 라벨은 **주문서 등 기타**이며 전부 주문서로 단정하지 않음 |
+| `item.options.exceptional` | 익셉셔널 옵션 |
+| `item.potential`, `item.additional_potential` | 등급, 원문 `lines`, 각 줄의 `effects`와 `parse_status` |
+| `item.soul` | 이름, 원문 `option_text`, 별도 `attack_power` / `magic_power`, 소울 잠재능력 |
+
+스탯 블록에는 `str`, `dex`, `int`, `luk`, `max_hp`, `max_mp`, `attack_power`, `magic_power`, `defense`, `speed`, `jump`, `all_stat_percent`, `max_hp_percent`, `max_mp_percent`, `damage_percent`, `boss_damage_percent`, `ignore_defense_percent`가 있습니다. Python의 `int`는 Java에서 `intelligence()`입니다. `%` 값 6은 6%이며 0.06이 아닙니다. 알려지지 않은 필드는 `detail` 원본에 남습니다.
+
+`item.stats.to_rows()` / `toRows()`는 표시 순서·라벨·부호·단위를 넣은 행을 반환합니다. 기본적으로 0과 부재 값은 숨기며, Python `include_zero=True`, Java `toRows(true)` / `toText(true)`로 0도 표시할 수 있습니다.
+
+`item.to_view()`의 핵심 필드는 다음과 같습니다. 아래 수치는 합성 예제입니다.
+
+```json
+{
+  "name": "합성 튜너",
+  "display_name": "합성 튜너 (+9)",
+  "icon_url": "https://example.invalid/icon.png",
+  "category": "튜너",
+  "required_level": 250,
+  "badges": [{"key": "STARFORCE", "label": "스타포스", "value": 25, "text": "25성"}],
+  "stat_rows": [{
+    "key": "STR", "label": "STR", "value": "385", "unit": "FLAT",
+    "value_text": "+385", "text": "STR +385", "breakdown_text": "190 +159 +36",
+    "components": [
+      {"source": "BASE", "label": "기본", "value": "190", "text": "190"},
+      {"source": "STARFORCE", "label": "스타포스", "value": "159", "text": "+159"},
+      {"source": "ADDITIONAL", "label": "추가옵션", "value": "36", "text": "+36"}
+    ]
+  }],
+  "potential": {
+    "title": "잠재능력", "grade": "LEGENDARY", "grade_label": "레전드리",
+    "grade_short_label": "레전", "summary_text": "공격력 +13%",
+    "lines": [{"slot": 1, "text": "공격력 +13%", "parse_status": "KNOWN"}]
+  },
+  "additional_potential": null,
+  "soul": null,
+  "diagnostics": []
+}
+```
+
+전체 결과에는 강화 정보 `enhancement`, 외형 `appearance`, 성장 `growth`, 만료 원문 등도 있습니다. `stat_rows`의 합계는 원본 값이며, 구성 요소의 합으로 다시 계산하지 않습니다. `item.stats`와 `item.options`는 모델에서 읽고, 장비 화면 DTO에서는 중복 대신 `stat_rows`를 사용합니다. 색상·HTML·CSS는 넣지 않으므로 서비스가 `source`, `grade`를 기준으로 스타일을 정하면 됩니다.
+
+### 심볼과 유니온
+
+```python
+symbol = character.symbols.items[0]
+symbol.stats.str                    # Decimal 또는 None
+symbol.growth.current               # 보유 성장 수량
+symbol.growth.required              # API가 제공한 필요 수량
+symbol.to_view()['stat_rows']       # STR +700 같은 표시 행
+
+raider = character.union.raider
+for block in raider.blocks:
+    print(block.job, block.level, block.control_point.x)
+    for point in block.positions:
+        print(point.x, point.y)
+for line in raider.member_effects:
+    print(line.text, line.effects)   # 조건을 보존한 해석; 합산하지 않음
+
+crystal = character.union.artifact.crystals[0]
+print(crystal.name, crystal.option_1, crystal.expires_at)
+member = character.union.champion.members[0]
+print(member.name, member.grade, member.badges[0].text)
+```
+
+심볼의 `stat_rows`, `level_text`, `force_text`, `growth`를 바로 렌더링할 수 있습니다. 심볼의 드롭률·메소·경험치 옵션은 각각 `drop_rate_percent`, `meso_rate_percent`, `exp_rate_percent`로 접근합니다. 유니온 배치 좌표는 실제 x/y이고, 블록 이동이나 보드 좌표 변환은 하지 않습니다. `validity_flag`, 잠재 `flag` 등 API 플래그는 원문 문자열을 유지합니다.
+
+### 프론트엔드에서 렌더링
+
+백엔드가 `character.to_view()` / `character.toView()`를 JSON 응답으로 반환하면, 프론트엔드는 같은 형태로 받습니다. 아래는 React의 간단한 장비 툴팁 예제입니다.
+
+```jsx
+function ItemTooltip({ item }) {
+  return <section>
+    <h3>{item.display_name}</h3>
+    {item.icon_url && <img src={item.icon_url} alt={item.name ?? "장비"} />}
+    {item.badges.map(b => <span key={b.key}>{b.text}</span>)}
+    {item.stat_rows?.map(row => <div key={row.key}>
+      <span>{row.text}</span>
+      {row.components.length > 0 && <span> (
+        {row.components.map(c => <span key={c.source} className={`stat-${c.source.toLowerCase()}`}>
+          {c.text}{" "}
+        </span>)}
+      )</span>}
+    </div>)}
+    {[item.potential, item.additional_potential, item.soul?.potential]
+      .filter(Boolean).map(section => <div key={section.title}>
+        <strong className={`grade-${section.grade?.toLowerCase()}`}>
+          {section.title}: {section.grade_label}
+        </strong>
+        {section.lines.map(line => <div key={line.slot}>{line.text}</div>)}
+      </div>)}
+    {item.soul && <div>{item.soul.summary_text}</div>}
+  </section>;
+}
+```
+
+목록에서는 `item.name`, `badges`, `potential.summary_text`를, 상세 화면에서는 `display_name`, `stat_rows`, `potential.lines`를 사용하면 됩니다. 해석하지 못한 문장도 원문으로 표시할 수 있습니다. 전투력 증감, 추가옵션의 ‘1추’ 같은 등급 판정은 제공하지 않습니다.
+
+### 부재·오류·정밀도 계약
+
+- 미선택·수집 실패·날짜 미지원 소스를 직접 읽으면 `DOCUMENT_UNAVAILABLE`입니다. `character.sheet.document(Source...)`로 원인과 상태를 확인할 수 있습니다.
+- `character.to_view()`는 `view_version: "1"`, `sources`의 상태·`error_code`·진단과 데이터 섹션을 반환합니다. 사용 불가능한 섹션은 `null`, 상태는 각각 `NOT_REQUESTED`, `FETCH_FAILED`, `UNSUPPORTED`입니다. 실제 빈 목록 `[]`와 구분하세요.
+- 수집한 객체 안의 누락·null 필드는 간편 모델에서 `None` / `null`입니다. 목록 필드도 마찬가지이며, 정상적인 빈 목록은 Python `()`, Java 빈 List, JSON `[]`입니다. `item.detail.field(...)` / `detail().field(...)`로 원래 상태를 구분합니다.
+- 숫자·객체·배열 형식이 잘못되면 직접 접근은 `INVALID_FIELD`입니다. 화면 변환은 해당 필드를 `null`로 두고 `diagnostics`에 경로를 남깁니다. 중첩 진단은 해당 하위 객체에도 있으며, 0으로 보정하지 않습니다.
+- 없는 프리셋은 `FIELD_UNAVAILABLE`, 번호 0 등 잘못된 요청은 `INVALID_REQUEST`입니다. 프리셋의 명시적인 null은 null로 유지합니다.
+- 계산용 수치는 Python Decimal / Java BigDecimal입니다. JSON에서는 정밀도 유지를 위해 스탯·경험치·성장 수량 등을 **문자열**로 보냅니다. 레벨·프리셋 번호·좌표처럼 계약이 정수인 필드는 JSON 정수입니다. 표시에는 `value_text`, `text`, `level_text`를 쓰면 됩니다.
+- 모든 전용 모델은 API 필드를 읽는 편의 계층입니다. 아직 전용 속성이 없는 신규 필드도 `detail` 및 기존 Document의 원본에서 접근할 수 있습니다. 자연어 해석은 기존 보수적 파서를 사용하며, 모든 문장 해석을 보장하지 않습니다.
+
+기존 원본 중심 API는 아래에 그대로 설명합니다. 새 서비스는 위 간편 API로 시작하고, 특별한 원본 필드나 세부 실패 상태가 필요할 때 사용하면 됩니다.
 
 ## 전체·선택·그룹 조회
 
@@ -645,8 +800,8 @@ try (var limiter = new PacingRateLimiter(5);
 
 1. Python은 `maple_library`, Java는 `org.whitedoggy.maplelibrary`에서 실제 공개 타입을 import합니다. 프레임워크 전용 SDK 클래스나 `get_equipment()` 같은 없는 API를 만들지 않습니다.
 2. 필요한 Source를 명시하고, 사용자 요구가 전체일 때만 전체 조회를 사용합니다. 스킬·유니온 그룹은 결과 문서 key가 아닙니다.
-3. 문서의 FETCHED 여부를 확인하고 FieldValue의 VALUE 여부를 확인한 뒤 값에 접근합니다. 0·빈 배열·null·missing을 구분합니다.
-4. 표의 실제 필드 이름으로 읽습니다. CASH/PETS를 EQUIPMENT와 같은 배열로 가정하지 않으며, 객체·문자열 배열을 구분합니다.
+3. 새 사용 코드는 `character()`와 간편 모델부터 사용합니다. 기존 raw API를 쓸 때만 Document 상태와 FieldValue 상태를 직접 검사합니다. 0·빈 배열·null·missing을 구분합니다.
+4. 화면에는 `to_view()` / `toView()`를 쓰고, 특별한 원본 접근에는 표의 실제 필드 이름을 씁니다. CASH/PETS를 EQUIPMENT와 같은 배열로 가정하지 않으며, 객체·문자열 배열을 구분합니다.
 5. 프리셋은 수집 결과에서 읽습니다. 누락 시 current로 대체하거나 현재 번호를 추정하지 않습니다.
 6. 키는 실행 시 주입합니다. 코드·예제·로그에 넣지 않습니다. 실제 API 이용조건과 출처 표기는 루트 README를 따릅니다.
 7. 알려지지 않은 옵션은 원문과 상태를 유지합니다. 합산·적용 판단·만료 필터·전투력 계산을 이 라이브러리가 수행한다고 가정하지 않습니다.
@@ -657,3 +812,5 @@ try (var limiter = new PacingRateLimiter(5);
 두 언어 모두 `Document.parse(Source.SYMBOLS, json)`으로 보유 JSON을 읽을 수 있습니다. [Python 오프라인 예제](../python/examples/offline.py), [Java 오프라인 예제](../java/examples/Offline.java)를 참고하세요.
 
 저장소 개발 테스트는 Python `python -m pytest python/tests`, Java `./java/gradlew -p java test`로 실행합니다. Python 테스트 의존성은 `python -m pip install -e './python[test]'`로 설치합니다. 두 테스트 후 `python tools/check_conformance.py`로 공통 expected와 결과를 비교하고, 양쪽 패키지를 빌드한 뒤 `python tools/check_packages.py`로 리소스·라이선스 포함을 확인합니다. 기본 테스트에는 API 키가 필요하지 않습니다.
+
+모델을 수정할 때는 `python/src/maple_library/presentation.json`의 공통 매핑과 `tools/generate_models.py`를 수정한 뒤 `python tools/generate_models.py`를 실행합니다. 생성된 Java/Python 접근자와 리소스는 저장소에 함께 포함되므로 사용자가 생성기를 실행할 필요는 없습니다. CI는 `--check`로 생성 파일의 일치를 검사합니다.

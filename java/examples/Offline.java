@@ -18,6 +18,10 @@ public class Offline {
         var changes = before.compareTo(after).changes();
         if (changes.size()!=1 || changes.getFirst().delta().compareTo(new BigDecimal("5"))!=0)
             throw new AssertionError("incorrect delta");
+        var symbol=after.asCharacter().symbols().items().getFirst();
+        if(symbol.stats().dex().compareTo(new BigDecimal("25"))!=0)throw new AssertionError("typed stat changed");
+        if(!symbol.stats().toText().contains("DEX +25"))throw new AssertionError("display text changed");
+        System.out.println(symbol.toJson());
         System.out.println("symbol_dex: +5 (reported data; no stat aggregation)");
     }
 }

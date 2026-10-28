@@ -175,6 +175,11 @@ class Document:
             raise MapleError("DOCUMENT_UNAVAILABLE")
         return EntityView(self.raw, "")
 
+    def as_model(self):
+        from .presentation import CONTRACT
+        from . import friendly
+        return getattr(friendly, CONTRACT["sources"][self.source.value][1])(self.view)
+
     def symbols(self):
         if self.source is not Source.SYMBOLS:
             raise MapleError("INVALID_REQUEST")
@@ -255,6 +260,10 @@ class CharacterSheet:
 
     def document(self, source: Source):
         return self.documents.get(source, Document(source, DocumentStatus.NOT_REQUESTED))
+
+    def as_character(self):
+        from .friendly import Character
+        return Character(self)
 
     def compare_to(self, after):
         from .diff import compare

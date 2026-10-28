@@ -12,6 +12,35 @@
 - [코드 에이전트용 체크리스트](docs/usage.md#코드-에이전트용-체크리스트)
 - [Java 빌드](java/README.md) · [Python 설치](python/README.md)
 
+간단히 가져와서 모델로 읽거나 화면용 JSON으로 반환할 수 있습니다.
+
+```python
+from maple_library import MapleClient, Source
+
+async with MapleClient(api_key) as maple:
+    character = await maple.character("캐릭터명", sources=[Source.EQUIPMENT, Source.SYMBOLS, Source.UNION])
+    item = character.equipment.weapon
+    if item is not None:
+        print(item.stats.to_text())
+        tooltip = item.to_view()
+    page = character.to_view()
+```
+
+```java
+try (var maple = new MapleClient(apiKey)) {
+    var character = maple.character("캐릭터명",
+        Set.of(Source.EQUIPMENT, Source.SYMBOLS, Source.UNION)).join();
+    var item = character.equipment().weapon();
+    if (item != null) {
+        System.out.println(item.stats().toText());
+        var tooltip = item.toView();
+    }
+    var page = character.toView();
+}
+```
+
+Java import는 `org.whitedoggy.maplelibrary.MapleClient`, `org.whitedoggy.maplelibrary.Source`, `java.util.Set`입니다. [27개 소스의 간편 접근, 장비·심볼·유니온 모델과 프론트엔드 예제](docs/usage.md#간편-모델과-화면용-데이터)를 참고하세요. 기존 원본 API도 유지합니다.
+
 ```text
 java/       Java 21 라이브러리와 테스트
 python/     Python 3.12+ 라이브러리와 테스트

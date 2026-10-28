@@ -5,9 +5,12 @@ Python>=3.12에서 실행되는 비동기 API 수집, 원본 JSON 파싱, 옵션
 ```python
 from maple_library import Document, Source
 
-doc = Document.parse(Source.SYMBOLS, '{"symbol":[{"symbol_str":"10"}]}')
-assert str(doc.symbols().value[0].number("symbol_str").value) == "10"
+symbols = Document.parse(Source.SYMBOLS,
+    '{"symbol":[{"symbol_name":"합성 심볼","symbol_str":"10"}]}').as_model()
+print(symbols.items[0].stats.str)           # Decimal('10')
+print(symbols.items[0].to_view()['stat_rows'])
 ```
+
 
 숫자는 Decimal로 읽고 missing/null/invalid/0을 구분한다. 모든 원본 필드는 불변 raw 트리에서 접근할 수 있다. 전투력 계산·합산·보정은 수행하지 않는다.
 

@@ -12,3 +12,9 @@ assert before.document(Source.SYMBOLS).symbols().value[0].number('symbol_str').v
 changes = before.compare_to(after).changes
 assert len(changes) == 1 and changes[0].delta == Decimal('5')
 print('symbol_dex: +5 (reported data; no stat aggregation)')
+
+character = after.as_character()
+symbol = character.symbols.items[0]
+assert symbol.stats.dex == Decimal("25")
+assert symbol.to_view()["stat_rows"][1]["text"] == "DEX +25"
+print(symbol.to_json())
